@@ -1,0 +1,71 @@
+{
+    "integrator": {
+        "type": "path",
+        "depth_rr" : 0,
+        "depth_max" : 6,
+        "spp" : 50
+    },
+
+    "camera": {
+        "type" : "perspective(NOT_USED)",
+        "pos" : [-0.217523, 0.387315, -0.594008],
+        "dir" : [0.32079, -0.413231, 0.852252],
+        "up" : [0.145571, 0.910626, 0.386741],
+        "width" : 600,
+        "height" : 600,
+        "fov" : 37
+    },
+
+    "shape" : [
+        {
+            "type" : "obj",
+            "path" : "meshes/Base.obj",
+            "bsdf" : {
+                "type" : "diffuse",
+                "albedo" : [0.5, 0.5, 0.5]
+            }
+        },
+        
+        {
+            "type" : "obj",
+            "path" : "meshes/InnerShape.obj",
+            "bsdf" : {
+                "type" : "diffuse",
+                "albedo" : [0.5, 0.5, 0.5]
+            }
+        },
+        {
+            "type" : "obj",
+            "path" : "meshes/OuterShape.obj",
+            "bsdf" : {
+                "type" : "diffuse",
+                "albedo" : [0.5, 0.5, 0.5]
+            }
+        },
+        {
+            "type" : "obj",
+            "path" : "meshes/Plane.obj",
+            "bsdf" : {
+                "type" : "diffuse",
+                "texture" : {
+                    "type" : "image",
+                    "path" : "textures/wood.jpg"
+                }
+            }
+        },
+        {
+            "type" : "obj",
+            "path" : "meshes/light.obj",
+            "bsdf" : {
+                "type" : "diffuse"
+            },
+            "arealight" : {
+                "radiance" : [9.5, 9.5, 9.5]
+            }
+        }
+        
+    ]
+}
+
+
+
