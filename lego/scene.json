@@ -1,0 +1,2289 @@
+{
+    "integrator": {
+        "type": "path",
+        "spp": 3000,
+        "depth_rr": 5,
+        "depth_max": 8
+    },
+    "camera": {
+        "type": "perspective",
+        "pos": [
+            -1.2, 0.5, 1.2
+        ],
+        "dir": [
+            0.915782091251428, -0.028618190351607117, -0.4006546649224997
+        ],
+        "up": [
+            0.0, 1.0, 0.0
+        ],
+        "width": 512,
+        "height": 512,
+        "fov": 33.0
+    },
+    "bsdfs": [
+        {
+            "id": "mat-Gray",
+            "type": "diffuse",
+            "albedo": [0.296138, 0.323143, 0.391572]
+        },
+        {
+            "id": "mat-transparent",
+            "type": "diffuse",
+            "albedo": [0.162644, 0.162644, 0.162644]
+        },
+        {
+            "id": "mat-Black",
+            "type": "diffuse",
+            "albedo": [0.002808, 0.002808, 0.002808]
+        },
+        {
+            "id": "mat-Red_Glass",
+            "type": "diffuse",
+            "albedo": [1.0, 0.015209, 0.003347]
+        },
+        {
+            "id": "mat-Yellow",
+            "type": "diffuse",
+            "albedo": [0.799103, 0.502886, 0.029557]
+        },
+        {
+            "id": "mat-RubberBand",
+            "type": "diffuse",
+            "albedo": [1.0, 0.0, 0.3]
+        },
+        {
+            "id": "mat-Sand",
+            "type": "diffuse",
+            "albedo": [0.529543, 0.435094, 0.248232]
+        },
+        {
+            "id": "mat-Light_brown",
+            "type": "diffuse",
+            "albedo": [0.201102, 0.079997, 0.034288]
+        },
+        {
+            "id": "mat-Brown",
+            "type": "diffuse",
+            "albedo": [0.097587, 0.040915, 0.020289]
+        },
+        {
+            "id": "mat-Zero",
+            "type": "diffuse",
+            "albedo": [0.0, 0.0, 0.0]
+        }
+    ],
+    "shape": [
+        {
+            "type": "ply",
+            "path": "meshes/PinTransitionConnector_01_02_002.ply",
+            "bsdf": "mat-Gray"
+        },
+        {
+            "type": "ply",
+            "path": "meshes/PinTransitionConnector_01_02_001.ply",
+            "bsdf": "mat-Gray"
+        },
+        {
+            "type": "ply",
+            "path": "meshes/PinTransitionConnector_01_02_003.ply",
+            "bsdf": "mat-Gray"
+        },
+        {
+            "type": "ply",
+            "path": "meshes/PinTransitionConnector_01_02_004.ply",
+            "bsdf": "mat-Gray"
+        },
+        {
+            "type": "ply",
+            "path": "meshes/Brick_flat_01_02_transparent_002.ply",
+            "bsdf": "mat-transparent"
+        },
+        {
+            "type": "ply",
+            "path": "meshes/Brick_flat_01_02_black_007.ply",
+            "bsdf": "mat-Black"
+        },
+        {
+            "type": "ply",
+            "path": "meshes/Brick_flat_01_02_black_006.ply",
+            "bsdf": "mat-Black"
+        },
+        {
+            "type": "ply",
+            "path": "meshes/Brick_flat_01_02_transparent_001.ply",
+            "bsdf": "mat-transparent"
+        },
+        {
+            "type": "ply",
+            "path": "meshes/Brick_flat_01_01_purple_002.ply",
+            "bsdf": "mat-Red_Glass"
+        },
+        {
+            "type": "ply",
+            "path": "meshes/Brick_flat_01_01_purple_001.ply",
+            "bsdf": "mat-Red_Glass"
+        },
+        {
+            "type": "ply",
+            "path": "meshes/Brick_round_01_01_purple_glass_001.ply",
+            "bsdf": "mat-Red_Glass"
+        },
+        {
+            "type": "ply",
+            "path": "meshes/Brick_flat_02_04_003.ply",
+            "bsdf": "mat-Yellow"
+        },
+        {
+            "type": "ply",
+            "path": "meshes/Brick_flat_02_04_002.ply",
+            "bsdf": "mat-Yellow"
+        },
+        {
+            "type": "ply",
+            "path": "meshes/Brick_flat_04_06_002.ply",
+            "bsdf": "mat-Yellow"
+        },
+        {
+            "type": "ply",
+            "path": "meshes/Brick_flat_01_08_004.ply",
+            "bsdf": "mat-Yellow"
+        },
+        {
+            "type": "ply",
+            "path": "meshes/Brick_flat_01_08_003.ply",
+            "bsdf": "mat-Yellow"
+        },
+        {
+            "type": "ply",
+            "path": "meshes/Brick_flat_02_02_003.ply",
+            "bsdf": "mat-Yellow"
+        },
+        {
+            "type": "ply",
+            "path": "meshes/Brick_flat_02_03_001.ply",
+            "bsdf": "mat-Yellow"
+        },
+        {
+            "type": "ply",
+            "path": "meshes/Brick_round_01_01_black_003.ply",
+            "bsdf": "mat-Black"
+        },
+        {
+            "type": "ply",
+            "path": "meshes/Brick_round_01_01_black_002.ply",
+            "bsdf": "mat-Black"
+        },
+        {
+            "type": "ply",
+            "path": "meshes/Brick_flat_04_06_001.ply",
+            "bsdf": "mat-Yellow"
+        },
+        {
+            "type": "ply",
+            "path": "meshes/Brick_round_01_01_black_001.ply",
+            "bsdf": "mat-Black"
+        },
+        {
+            "type": "ply",
+            "path": "meshes/Brick_flat_01_08_002.ply",
+            "bsdf": "mat-Yellow"
+        },
+        {
+            "type": "ply",
+            "path": "meshes/Brick_m_hole_01_04_004.ply",
+            "bsdf": "mat-Yellow"
+        },
+        {
+            "type": "ply",
+            "path": "meshes/Brick_flat_m_flatTop_01_02_011.ply",
+            "bsdf": "mat-Yellow"
+        },
+        {
+            "type": "ply",
+            "path": "meshes/Brick_flat_m_flatTop_01_02_010.ply",
+            "bsdf": "mat-Yellow"
+        },
+        {
+            "type": "ply",
+            "path": "meshes/Brick_m_hole_01_02_008.ply",
+            "bsdf": "mat-Yellow"
+        },
+        {
+            "type": "ply",
+            "path": "meshes/Brick_m_hole_01_02_007.ply",
+            "bsdf": "mat-Yellow"
+        },
+        {
+            "type": "ply",
+            "path": "meshes/Brick_m_hole_01_02_006.ply",
+            "bsdf": "mat-Yellow"
+        },
+        {
+            "type": "ply",
+            "path": "meshes/Brick_m_hole_01_02_005.ply",
+            "bsdf": "mat-Yellow"
+        },
+        {
+            "type": "ply",
+            "path": "meshes/TechnicConnector_01_02_008.ply",
+            "bsdf": "mat-Gray"
+        },
+        {
+            "type": "ply",
+            "path": "meshes/TechnicConnector_01_02_007.ply",
+            "bsdf": "mat-Gray"
+        },
+        {
+            "type": "ply",
+            "path": "meshes/Technic_axle_6_004.ply",
+            "bsdf": "mat-Black"
+        },
+        {
+            "type": "ply",
+            "path": "meshes/Brick_m_hole_01_08_010.ply",
+            "bsdf": "mat-Yellow"
+        },
+        {
+            "type": "ply",
+            "path": "meshes/Technic_axle_6_003.ply",
+            "bsdf": "mat-Black"
+        },
+        {
+            "type": "ply",
+            "path": "meshes/TechnicConnector_01_02_006.ply",
+            "bsdf": "mat-Gray"
+        },
+        {
+            "type": "ply",
+            "path": "meshes/TechnicConnector_01_02_005.ply",
+            "bsdf": "mat-Gray"
+        },
+        {
+            "type": "ply",
+            "path": "meshes/Technic_axle_8_003.ply",
+            "bsdf": "mat-Black"
+        },
+        {
+            "type": "ply",
+            "path": "meshes/TechnicBush_01_01_009.ply",
+            "bsdf": "mat-Gray"
+        },
+        {
+            "type": "ply",
+            "path": "meshes/TechnicBush_01_01_008.ply",
+            "bsdf": "mat-Gray"
+        },
+        {
+            "type": "ply",
+            "path": "meshes/PinSmoothWithoutFrictionRidges_01_02_022.ply",
+            "bsdf": "mat-Gray"
+        },
+        {
+            "type": "ply",
+            "path": "meshes/PinSmoothWithoutFrictionRidges_01_02_021.ply",
+            "bsdf": "mat-Gray"
+        },
+        {
+            "type": "ply",
+            "path": "meshes/PinSmoothWithoutFrictionRidges_01_02_020.ply",
+            "bsdf": "mat-Gray"
+        },
+        {
+            "type": "ply",
+            "path": "meshes/PinSmoothWithoutFrictionRidges_01_02_019.ply",
+            "bsdf": "mat-Gray"
+        },
+        {
+            "type": "ply",
+            "path": "meshes/PinSmoothWithoutFrictionRidges_01_02_018.ply",
+            "bsdf": "mat-Gray"
+        },
+        {
+            "type": "ply",
+            "path": "meshes/PinSmoothWithoutFrictionRidges_01_02_017.ply",
+            "bsdf": "mat-Gray"
+        },
+        {
+            "type": "ply",
+            "path": "meshes/PinSmoothWithoutFrictionRidges_01_02_016.ply",
+            "bsdf": "mat-Gray"
+        },
+        {
+            "type": "ply",
+            "path": "meshes/PinSmoothWithoutFrictionRidges_01_02_015.ply",
+            "bsdf": "mat-Gray"
+        },
+        {
+            "type": "ply",
+            "path": "meshes/Brick_m_hole_01_08_009.ply",
+            "bsdf": "mat-Yellow"
+        },
+        {
+            "type": "ply",
+            "path": "meshes/Brick_m_hole_01_02_004.ply",
+            "bsdf": "mat-Yellow"
+        },
+        {
+            "type": "ply",
+            "path": "meshes/PinSmoothWithoutFrictionRidges_01_02_014.ply",
+            "bsdf": "mat-Gray"
+        },
+        {
+            "type": "ply",
+            "path": "meshes/Brick_m_hole_01_08_008.ply",
+            "bsdf": "mat-Yellow"
+        },
+        {
+            "type": "ply",
+            "path": "meshes/Brick_m_hole_01_08_007.ply",
+            "bsdf": "mat-Yellow"
+        },
+        {
+            "type": "ply",
+            "path": "meshes/PinSmoothWithoutFrictionRidges_01_02_013.ply",
+            "bsdf": "mat-Gray"
+        },
+        {
+            "type": "ply",
+            "path": "meshes/Brick_m_hole_01_02_003.ply",
+            "bsdf": "mat-Yellow"
+        },
+        {
+            "type": "ply",
+            "path": "meshes/Brick_flat_01_04_001.ply",
+            "bsdf": "mat-Yellow"
+        },
+        {
+            "type": "ply",
+            "path": "meshes/Brick_m_hole_01_08_006.ply",
+            "bsdf": "mat-Yellow"
+        },
+        {
+            "type": "ply",
+            "path": "meshes/Brick_m_hole_01_08_005.ply",
+            "bsdf": "mat-Yellow"
+        },
+        {
+            "type": "ply",
+            "path": "meshes/PinSmoothWithoutFrictionRidges_01_02_012.ply",
+            "bsdf": "mat-Gray"
+        },
+        {
+            "type": "ply",
+            "path": "meshes/PinSmoothWithoutFrictionRidges_01_02_011.ply",
+            "bsdf": "mat-Gray"
+        },
+        {
+            "type": "ply",
+            "path": "meshes/PinSmoothWithoutFrictionRidges_01_02_010.ply",
+            "bsdf": "mat-Gray"
+        },
+        {
+            "type": "ply",
+            "path": "meshes/PinSmoothWithoutFrictionRidges_01_02_009.ply",
+            "bsdf": "mat-Gray"
+        },
+        {
+            "type": "ply",
+            "path": "meshes/Brick_m_hole_01_04_002.ply",
+            "bsdf": "mat-Yellow"
+        },
+        {
+            "type": "ply",
+            "path": "meshes/Brick_m_hole_01_04_001.ply",
+            "bsdf": "mat-Yellow"
+        },
+        {
+            "type": "ply",
+            "path": "meshes/Brick_m_hole_01_06_004.ply",
+            "bsdf": "mat-Yellow"
+        },
+        {
+            "type": "ply",
+            "path": "meshes/Brick_m_hole_01_16_006.ply",
+            "bsdf": "mat-Yellow"
+        },
+        {
+            "type": "ply",
+            "path": "meshes/Brick_m_hole_01_06_003.ply",
+            "bsdf": "mat-Yellow"
+        },
+        {
+            "type": "ply",
+            "path": "meshes/Brick_m_hole_01_16_005.ply",
+            "bsdf": "mat-Yellow"
+        },
+        {
+            "type": "ply",
+            "path": "meshes/PinSmoothWithoutFrictionRidges_01_02_008.ply",
+            "bsdf": "mat-Gray"
+        },
+        {
+            "type": "ply",
+            "path": "meshes/PinSmoothWithoutFrictionRidges_01_02_007.ply",
+            "bsdf": "mat-Gray"
+        },
+        {
+            "type": "ply",
+            "path": "meshes/Brick_flat_01_02_gray_002.ply",
+            "bsdf": "mat-Gray"
+        },
+        {
+            "type": "ply",
+            "path": "meshes/Brick_flat_01_02_black_005.ply",
+            "bsdf": "mat-Black"
+        },
+        {
+            "type": "ply",
+            "path": "meshes/Brick_flat_01_02_black_004.ply",
+            "bsdf": "mat-Black"
+        },
+        {
+            "type": "ply",
+            "path": "meshes/Brick_flat_01_04_gray_004.ply",
+            "bsdf": "mat-Gray"
+        },
+        {
+            "type": "ply",
+            "path": "meshes/Brick_flat_01_04_gray_003.ply",
+            "bsdf": "mat-Gray"
+        },
+        {
+            "type": "ply",
+            "path": "meshes/Brick_flat_01_02_black_003.ply",
+            "bsdf": "mat-Black"
+        },
+        {
+            "type": "ply",
+            "path": "meshes/Brick_flat_01_02_black_002.ply",
+            "bsdf": "mat-Black"
+        },
+        {
+            "type": "ply",
+            "path": "meshes/Brick_flat_01_04_gray_002.ply",
+            "bsdf": "mat-Gray"
+        },
+        {
+            "type": "ply",
+            "path": "meshes/Brick_flat_01_02_gray_001.ply",
+            "bsdf": "mat-Gray"
+        },
+        {
+            "type": "ply",
+            "path": "meshes/Brick_flat_01_04_gray_001.ply",
+            "bsdf": "mat-Gray"
+        },
+        {
+            "type": "ply",
+            "path": "meshes/Brick_flat_01_02_black_001.ply",
+            "bsdf": "mat-Black"
+        },
+        {
+            "type": "ply",
+            "path": "meshes/Brick_01_04_004.ply",
+            "bsdf": "mat-Yellow"
+        },
+        {
+            "type": "ply",
+            "path": "meshes/Brick_01_02_004.ply",
+            "bsdf": "mat-Yellow"
+        },
+        {
+            "type": "ply",
+            "path": "meshes/Brick_flat_m_flatTop_01_02_007.ply",
+            "bsdf": "mat-Yellow"
+        },
+        {
+            "type": "ply",
+            "path": "meshes/Brick_flat_m_flatTop_01_02_006.ply",
+            "bsdf": "mat-Yellow"
+        },
+        {
+            "type": "ply",
+            "path": "meshes/Brick_flat_m_flatTop_01_02_005.ply",
+            "bsdf": "mat-Yellow"
+        },
+        {
+            "type": "ply",
+            "path": "meshes/Brick_flat_m_flatTop_01_02_004.ply",
+            "bsdf": "mat-Yellow"
+        },
+        {
+            "type": "ply",
+            "path": "meshes/Brick_flat_m_flatTop_01_02_003.ply",
+            "bsdf": "mat-Yellow"
+        },
+        {
+            "type": "ply",
+            "path": "meshes/Brick_flat_m_flatTop_01_02_002.ply",
+            "bsdf": "mat-Yellow"
+        },
+        {
+            "type": "ply",
+            "path": "meshes/Brick_01_02_003.ply",
+            "bsdf": "mat-Yellow"
+        },
+        {
+            "type": "ply",
+            "path": "meshes/Brick_01_04_003.ply",
+            "bsdf": "mat-Yellow"
+        },
+        {
+            "type": "ply",
+            "path": "meshes/Brick_flat_04_10_002.ply",
+            "bsdf": "mat-Yellow"
+        },
+        {
+            "type": "ply",
+            "path": "meshes/Brick_01_04_002.ply",
+            "bsdf": "mat-Yellow"
+        },
+        {
+            "type": "ply",
+            "path": "meshes/Brick_01_06_004.ply",
+            "bsdf": "mat-Yellow"
+        },
+        {
+            "type": "ply",
+            "path": "meshes/Brick_02_02_002.ply",
+            "bsdf": "mat-Yellow"
+        },
+        {
+            "type": "ply",
+            "path": "meshes/Brick_01_06_003.ply",
+            "bsdf": "mat-Yellow"
+        },
+        {
+            "type": "ply",
+            "path": "meshes/Brick_01_04_001.ply",
+            "bsdf": "mat-Yellow"
+        },
+        {
+            "type": "ply",
+            "path": "meshes/Brick_m_hole_01_06_001.ply",
+            "bsdf": "mat-Yellow"
+        },
+        {
+            "type": "ply",
+            "path": "meshes/Brick_01_06_002.ply",
+            "bsdf": "mat-Yellow"
+        },
+        {
+            "type": "ply",
+            "path": "meshes/Brick_flat_02_06_002.ply",
+            "bsdf": "mat-Yellow"
+        },
+        {
+            "type": "ply",
+            "path": "meshes/Brick_flat_02_06_001.ply",
+            "bsdf": "mat-Yellow"
+        },
+        {
+            "type": "ply",
+            "path": "meshes/Brick_01_06_001.ply",
+            "bsdf": "mat-Yellow"
+        },
+        {
+            "type": "ply",
+            "path": "meshes/Brick_m_hole_01_06_002.ply",
+            "bsdf": "mat-Yellow"
+        },
+        {
+            "type": "ply",
+            "path": "meshes/Brick_m_hole_01_08_001.ply",
+            "bsdf": "mat-Yellow"
+        },
+        {
+            "type": "ply",
+            "path": "meshes/Brick_m_hole_01_08_004.ply",
+            "bsdf": "mat-Yellow"
+        },
+        {
+            "type": "ply",
+            "path": "meshes/Brick_m_hole_01_08_003.ply",
+            "bsdf": "mat-Yellow"
+        },
+        {
+            "type": "ply",
+            "path": "meshes/Brick_m_hole_01_08_002.ply",
+            "bsdf": "mat-Yellow"
+        },
+        {
+            "type": "ply",
+            "path": "meshes/Brick_02_02_001.ply",
+            "bsdf": "mat-Yellow"
+        },
+        {
+            "type": "ply",
+            "path": "meshes/Brick_flat_m_flatTop_02_02_007.ply",
+            "bsdf": "mat-Yellow"
+        },
+        {
+            "type": "ply",
+            "path": "meshes/Brick_flat_02_04_001.ply",
+            "bsdf": "mat-Yellow"
+        },
+        {
+            "type": "ply",
+            "path": "meshes/Brick_flat_m_flatTop_02_02_006.ply",
+            "bsdf": "mat-Yellow"
+        },
+        {
+            "type": "ply",
+            "path": "meshes/Brick_flat_m_flatTop_02_02_005.ply",
+            "bsdf": "mat-Yellow"
+        },
+        {
+            "type": "ply",
+            "path": "meshes/Brick_flat_m_flatTop_02_02_004.ply",
+            "bsdf": "mat-Yellow"
+        },
+        {
+            "type": "ply",
+            "path": "meshes/Brick_flat_m_flatTop_02_02_003.ply",
+            "bsdf": "mat-Yellow"
+        },
+        {
+            "type": "ply",
+            "path": "meshes/Brick_flat_m_flatTop_02_02_002.ply",
+            "bsdf": "mat-Yellow"
+        },
+        {
+            "type": "ply",
+            "path": "meshes/Brick_01_02_002.ply",
+            "bsdf": "mat-Yellow"
+        },
+        {
+            "type": "ply",
+            "path": "meshes/Brick_01_08_002.ply",
+            "bsdf": "mat-Yellow"
+        },
+        {
+            "type": "ply",
+            "path": "meshes/Brick_01_08_001.ply",
+            "bsdf": "mat-Yellow"
+        },
+        {
+            "type": "ply",
+            "path": "meshes/SlopeBrickInverted_02_02_003.ply",
+            "bsdf": "mat-Yellow"
+        },
+        {
+            "type": "ply",
+            "path": "meshes/SlopeBrickInverted_02_02_002.ply",
+            "bsdf": "mat-Yellow"
+        },
+        {
+            "type": "ply",
+            "path": "meshes/Brick_flat_m_flatTop_02_02_001.ply",
+            "bsdf": "mat-Yellow"
+        },
+        {
+            "type": "ply",
+            "path": "meshes/Brick_flat_m_flatTop_01_02_001.ply",
+            "bsdf": "mat-Yellow"
+        },
+        {
+            "type": "ply",
+            "path": "meshes/Brick_01_02_001.ply",
+            "bsdf": "mat-Yellow"
+        },
+        {
+            "type": "ply",
+            "path": "meshes/SlopeBrickInverted_02_02_001.ply",
+            "bsdf": "mat-Yellow"
+        },
+        {
+            "type": "ply",
+            "path": "meshes/Brick_flat_06_10_002.ply",
+            "bsdf": "mat-Yellow"
+        },
+        {
+            "type": "ply",
+            "path": "meshes/Brick_flat_06_10_001.ply",
+            "bsdf": "mat-Yellow"
+        },
+        {
+            "type": "ply",
+            "path": "meshes/TechnicBush_01_01_004.ply",
+            "bsdf": "mat-Gray"
+        },
+        {
+            "type": "ply",
+            "path": "meshes/Technic_axle_12_002.ply",
+            "bsdf": "mat-Black"
+        },
+        {
+            "type": "ply",
+            "path": "meshes/TechnicBush_01_01_003.ply",
+            "bsdf": "mat-Gray"
+        },
+        {
+            "type": "ply",
+            "path": "meshes/Brick_flat_04_10_001.ply",
+            "bsdf": "mat-Yellow"
+        },
+        {
+            "type": "ply",
+            "path": "meshes/TechnicBush_01_01_002.ply",
+            "bsdf": "mat-Gray"
+        },
+        {
+            "type": "ply",
+            "path": "meshes/Technic_axle_12_001.ply",
+            "bsdf": "mat-Black"
+        },
+        {
+            "type": "ply",
+            "path": "meshes/TechnicBush_01_01_001.ply",
+            "bsdf": "mat-Gray"
+        },
+        {
+            "type": "ply",
+            "path": "meshes/PinSmoothWithoutFrictionRidges_01_02_002.ply",
+            "bsdf": "mat-Gray"
+        },
+        {
+            "type": "ply",
+            "path": "meshes/PinSmoothWithoutFrictionRidges_01_02_001.ply",
+            "bsdf": "mat-Gray"
+        },
+        {
+            "type": "ply",
+            "path": "meshes/Brick_m_hole_01_16_004.ply",
+            "bsdf": "mat-Yellow"
+        },
+        {
+            "type": "ply",
+            "path": "meshes/Brick_m_hole_01_16_003.ply",
+            "bsdf": "mat-Yellow"
+        },
+        {
+            "type": "ply",
+            "path": "meshes/Brick_m_hole_01_16_002.ply",
+            "bsdf": "mat-Yellow"
+        },
+        {
+            "type": "ply",
+            "path": "meshes/Brick_m_hole_01_16_001.ply",
+            "bsdf": "mat-Yellow"
+        },
+        {
+            "type": "ply",
+            "path": "meshes/TechnicBush_01_01_007.ply",
+            "bsdf": "mat-Gray"
+        },
+        {
+            "type": "ply",
+            "path": "meshes/TechnicBush_01_01_006.ply",
+            "bsdf": "mat-Gray"
+        },
+        {
+            "type": "ply",
+            "path": "meshes/Technic_axle_8_002.ply",
+            "bsdf": "mat-Black"
+        },
+        {
+            "type": "ply",
+            "path": "meshes/RubberBand_Left_001.ply",
+            "bsdf": "mat-RubberBand"
+        },
+        {
+            "type": "ply",
+            "path": "meshes/RubberBand_Left.ply",
+            "bsdf": "mat-RubberBand"
+        },
+        {
+            "type": "ply",
+            "path": "meshes/Brick_flat_01_04_007.ply",
+            "bsdf": "mat-Yellow"
+        },
+        {
+            "type": "ply",
+            "path": "meshes/Brick_flat_01_04_006.ply",
+            "bsdf": "mat-Yellow"
+        },
+        {
+            "type": "ply",
+            "path": "meshes/Brick_flat_01_04_005.ply",
+            "bsdf": "mat-Yellow"
+        },
+        {
+            "type": "ply",
+            "path": "meshes/Brick_flat_01_04_004.ply",
+            "bsdf": "mat-Yellow"
+        },
+        {
+            "type": "ply",
+            "path": "meshes/Brick_flat_01_04_003.ply",
+            "bsdf": "mat-Yellow"
+        },
+        {
+            "type": "ply",
+            "path": "meshes/Brick_flat_04_12_002.ply",
+            "bsdf": "mat-Yellow"
+        },
+        {
+            "type": "ply",
+            "path": "meshes/Brick_flat_04_12_001.ply",
+            "bsdf": "mat-Yellow"
+        },
+        {
+            "type": "ply",
+            "path": "meshes/TipperEnd_002.ply",
+            "bsdf": "mat-Yellow"
+        },
+        {
+            "type": "ply",
+            "path": "meshes/TipperEnd_001.ply",
+            "bsdf": "mat-Yellow"
+        },
+        {
+            "type": "ply",
+            "path": "meshes/Brick_flat_01_04_002.ply",
+            "bsdf": "mat-Yellow"
+        },
+        {
+            "type": "ply",
+            "path": "meshes/Brick_flat_02_06_004.ply",
+            "bsdf": "mat-Yellow"
+        },
+        {
+            "type": "ply",
+            "path": "meshes/Brick_flat_02_06_003.ply",
+            "bsdf": "mat-Yellow"
+        },
+        {
+            "type": "ply",
+            "path": "meshes/Brick_flat_02_04_004.ply",
+            "bsdf": "mat-Yellow"
+        },
+        {
+            "type": "ply",
+            "path": "meshes/Brick_flat_01_02_002.ply",
+            "bsdf": "mat-Yellow"
+        },
+        {
+            "type": "ply",
+            "path": "meshes/Brick_flat_01_02_001.ply",
+            "bsdf": "mat-Yellow"
+        },
+        {
+            "type": "ply",
+            "path": "meshes/Brick_m_hole_01_02_010.ply",
+            "bsdf": "mat-Yellow"
+        },
+        {
+            "type": "ply",
+            "path": "meshes/PinSmoothWithoutFrictionRidges_01_02_030.ply",
+            "bsdf": "mat-Gray"
+        },
+        {
+            "type": "ply",
+            "path": "meshes/PinSmoothWithoutFrictionRidges_01_02_029.ply",
+            "bsdf": "mat-Gray"
+        },
+        {
+            "type": "ply",
+            "path": "meshes/Brick_m_hole_01_02_009.ply",
+            "bsdf": "mat-Yellow"
+        },
+        {
+            "type": "ply",
+            "path": "meshes/TechnicConnector_01_02_002.ply",
+            "bsdf": "mat-Gray"
+        },
+        {
+            "type": "ply",
+            "path": "meshes/TechnicConnector_01_02_001.ply",
+            "bsdf": "mat-Gray"
+        },
+        {
+            "type": "ply",
+            "path": "meshes/TechnicBush_01_01_011.ply",
+            "bsdf": "mat-Gray"
+        },
+        {
+            "type": "ply",
+            "path": "meshes/TechnicBush_01_01_010.ply",
+            "bsdf": "mat-Gray"
+        },
+        {
+            "type": "ply",
+            "path": "meshes/Technic_axle_8_004.ply",
+            "bsdf": "mat-Black"
+        },
+        {
+            "type": "ply",
+            "path": "meshes/PinSmoothWithoutFrictionRidges_01_02_038.ply",
+            "bsdf": "mat-Gray"
+        },
+        {
+            "type": "ply",
+            "path": "meshes/PinSmoothWithoutFrictionRidges_01_02_037.ply",
+            "bsdf": "mat-Gray"
+        },
+        {
+            "type": "ply",
+            "path": "meshes/TechnicConnector_01_02_024.ply",
+            "bsdf": "mat-Gray"
+        },
+        {
+            "type": "ply",
+            "path": "meshes/TechnicConnector_01_02_023.ply",
+            "bsdf": "mat-Gray"
+        },
+        {
+            "type": "ply",
+            "path": "meshes/Technic_axle_4_011.ply",
+            "bsdf": "mat-Black"
+        },
+        {
+            "type": "ply",
+            "path": "meshes/Technic_axle_4_010.ply",
+            "bsdf": "mat-Black"
+        },
+        {
+            "type": "ply",
+            "path": "meshes/TechnicConnector_01_02_022.ply",
+            "bsdf": "mat-Gray"
+        },
+        {
+            "type": "ply",
+            "path": "meshes/TechnicConnector_01_02_021.ply",
+            "bsdf": "mat-Gray"
+        },
+        {
+            "type": "ply",
+            "path": "meshes/Brick_m_hole_01_06_008.ply",
+            "bsdf": "mat-Yellow"
+        },
+        {
+            "type": "ply",
+            "path": "meshes/Brick_m_hole_01_06_007.ply",
+            "bsdf": "mat-Yellow"
+        },
+        {
+            "type": "ply",
+            "path": "meshes/PinSmoothWithoutFrictionRidges_01_02_034.ply",
+            "bsdf": "mat-Gray"
+        },
+        {
+            "type": "ply",
+            "path": "meshes/PinSmoothWithoutFrictionRidges_01_02_033.ply",
+            "bsdf": "mat-Gray"
+        },
+        {
+            "type": "ply",
+            "path": "meshes/PinSmoothWithoutFrictionRidges_01_02_036.ply",
+            "bsdf": "mat-Gray"
+        },
+        {
+            "type": "ply",
+            "path": "meshes/TechnicConnector_01_02_020.ply",
+            "bsdf": "mat-Gray"
+        },
+        {
+            "type": "ply",
+            "path": "meshes/TechnicConnector_01_02_019.ply",
+            "bsdf": "mat-Gray"
+        },
+        {
+            "type": "ply",
+            "path": "meshes/Technic_axle_4_009.ply",
+            "bsdf": "mat-Black"
+        },
+        {
+            "type": "ply",
+            "path": "meshes/PinSmoothWithoutFrictionRidges_01_02_035.ply",
+            "bsdf": "mat-Gray"
+        },
+        {
+            "type": "ply",
+            "path": "meshes/Technic_axle_4_008.ply",
+            "bsdf": "mat-Black"
+        },
+        {
+            "type": "ply",
+            "path": "meshes/TechnicConnector_01_02_018.ply",
+            "bsdf": "mat-Gray"
+        },
+        {
+            "type": "ply",
+            "path": "meshes/TechnicConnector_01_02_017.ply",
+            "bsdf": "mat-Gray"
+        },
+        {
+            "type": "ply",
+            "path": "meshes/PinSmoothWithoutFrictionRidges_01_02_032.ply",
+            "bsdf": "mat-Gray"
+        },
+        {
+            "type": "ply",
+            "path": "meshes/PinSmoothWithoutFrictionRidges_01_02_031.ply",
+            "bsdf": "mat-Gray"
+        },
+        {
+            "type": "ply",
+            "path": "meshes/Brick_flat_01_08_005.ply",
+            "bsdf": "mat-Yellow"
+        },
+        {
+            "type": "ply",
+            "path": "meshes/Brick_m_hole_01_04_005.ply",
+            "bsdf": "mat-Yellow"
+        },
+        {
+            "type": "ply",
+            "path": "meshes/Brick_flat_m_flatTop_01_02_013.ply",
+            "bsdf": "mat-Yellow"
+        },
+        {
+            "type": "ply",
+            "path": "meshes/GearRack_01_04_007.ply",
+            "bsdf": "mat-Gray"
+        },
+        {
+            "type": "ply",
+            "path": "meshes/Brick_flat_m_flatTop_01_02_012.ply",
+            "bsdf": "mat-Yellow"
+        },
+        {
+            "type": "ply",
+            "path": "meshes/Brick_flat_m_flatTop_01_02_009.ply",
+            "bsdf": "mat-Yellow"
+        },
+        {
+            "type": "ply",
+            "path": "meshes/GearRack_01_04_005.ply",
+            "bsdf": "mat-Gray"
+        },
+        {
+            "type": "ply",
+            "path": "meshes/Brick_flat_m_flatTop_01_02_008.ply",
+            "bsdf": "mat-Yellow"
+        },
+        {
+            "type": "ply",
+            "path": "meshes/Brick_m_hole_01_04_003.ply",
+            "bsdf": "mat-Yellow"
+        },
+        {
+            "type": "ply",
+            "path": "meshes/Brick_flat_01_08_001.ply",
+            "bsdf": "mat-Yellow"
+        },
+        {
+            "type": "ply",
+            "path": "meshes/Brick_m_hole_01_06_006.ply",
+            "bsdf": "mat-Yellow"
+        },
+        {
+            "type": "ply",
+            "path": "meshes/Brick_flat_01_08_006.ply",
+            "bsdf": "mat-Yellow"
+        },
+        {
+            "type": "ply",
+            "path": "meshes/Brick_m_hole_01_06_005.ply",
+            "bsdf": "mat-Yellow"
+        },
+        {
+            "type": "ply",
+            "path": "meshes/Brick_m_hole_01_12_002.ply",
+            "bsdf": "mat-Yellow"
+        },
+        {
+            "type": "ply",
+            "path": "meshes/PinSmoothWithoutFrictionRidges_01_02_040.ply",
+            "bsdf": "mat-Gray"
+        },
+        {
+            "type": "ply",
+            "path": "meshes/Brick_m_hole_01_12_001.ply",
+            "bsdf": "mat-Yellow"
+        },
+        {
+            "type": "ply",
+            "path": "meshes/PinSmoothWithoutFrictionRidges_01_02_039.ply",
+            "bsdf": "mat-Gray"
+        },
+        {
+            "type": "ply",
+            "path": "meshes/PinSmoothWithoutFrictionRidges_01_02_024.ply",
+            "bsdf": "mat-Gray"
+        },
+        {
+            "type": "ply",
+            "path": "meshes/PinSmoothWithoutFrictionRidges_01_02_023.ply",
+            "bsdf": "mat-Gray"
+        },
+        {
+            "type": "ply",
+            "path": "meshes/TechnicConnector_01_02_012.ply",
+            "bsdf": "mat-Gray"
+        },
+        {
+            "type": "ply",
+            "path": "meshes/TechnicConnector_01_02_011.ply",
+            "bsdf": "mat-Gray"
+        },
+        {
+            "type": "ply",
+            "path": "meshes/Technic_axle_4_007.ply",
+            "bsdf": "mat-Black"
+        },
+        {
+            "type": "ply",
+            "path": "meshes/Technic_axle_4_006.ply",
+            "bsdf": "mat-Black"
+        },
+        {
+            "type": "ply",
+            "path": "meshes/TechnicConnector_01_02_010.ply",
+            "bsdf": "mat-Gray"
+        },
+        {
+            "type": "ply",
+            "path": "meshes/TechnicConnector_01_02_009.ply",
+            "bsdf": "mat-Gray"
+        },
+        {
+            "type": "ply",
+            "path": "meshes/PinSmoothWithoutFrictionRidges_01_02_004.ply",
+            "bsdf": "mat-Gray"
+        },
+        {
+            "type": "ply",
+            "path": "meshes/PinSmoothWithoutFrictionRidges_01_02_003.ply",
+            "bsdf": "mat-Gray"
+        },
+        {
+            "type": "ply",
+            "path": "meshes/PinSmoothWithoutFrictionRidges_01_02_028.ply",
+            "bsdf": "mat-Gray"
+        },
+        {
+            "type": "ply",
+            "path": "meshes/PinSmoothWithoutFrictionRidges_01_02_027.ply",
+            "bsdf": "mat-Gray"
+        },
+        {
+            "type": "ply",
+            "path": "meshes/PinSmoothWithoutFrictionRidges_01_02_026.ply",
+            "bsdf": "mat-Gray"
+        },
+        {
+            "type": "ply",
+            "path": "meshes/PinSmoothWithoutFrictionRidges_01_02_025.ply",
+            "bsdf": "mat-Gray"
+        },
+        {
+            "type": "ply",
+            "path": "meshes/TechnicConnector_01_02_016.ply",
+            "bsdf": "mat-Gray"
+        },
+        {
+            "type": "ply",
+            "path": "meshes/TechnicConnector_01_02_015.ply",
+            "bsdf": "mat-Gray"
+        },
+        {
+            "type": "ply",
+            "path": "meshes/Technic_axle_6_006.ply",
+            "bsdf": "mat-Black"
+        },
+        {
+            "type": "ply",
+            "path": "meshes/Technic_axle_6_005.ply",
+            "bsdf": "mat-Black"
+        },
+        {
+            "type": "ply",
+            "path": "meshes/TechnicConnector_01_02_014.ply",
+            "bsdf": "mat-Gray"
+        },
+        {
+            "type": "ply",
+            "path": "meshes/TechnicConnector_01_02_013.ply",
+            "bsdf": "mat-Gray"
+        },
+        {
+            "type": "ply",
+            "path": "meshes/Brick_02_02_003.ply",
+            "bsdf": "mat-Yellow"
+        },
+        {
+            "type": "ply",
+            "path": "meshes/Brick_flat_02_08_001.ply",
+            "bsdf": "mat-Yellow"
+        },
+        {
+            "type": "ply",
+            "path": "meshes/Brick_flat_m_flatTop_02_02_008.ply",
+            "bsdf": "mat-Yellow"
+        },
+        {
+            "type": "ply",
+            "path": "meshes/Brick_flat_02_02_002.ply",
+            "bsdf": "mat-Yellow"
+        },
+        {
+            "type": "ply",
+            "path": "meshes/GearRack_01_04_004.ply",
+            "bsdf": "mat-Gray"
+        },
+        {
+            "type": "ply",
+            "path": "meshes/GearRack_01_04_003.ply",
+            "bsdf": "mat-Gray"
+        },
+        {
+            "type": "ply",
+            "path": "meshes/GearRack_01_04_002.ply",
+            "bsdf": "mat-Gray"
+        },
+        {
+            "type": "ply",
+            "path": "meshes/GearRack_01_04_001.ply",
+            "bsdf": "mat-Gray"
+        },
+        {
+            "type": "ply",
+            "path": "meshes/Brick_flat_02_02_001.ply",
+            "bsdf": "mat-Yellow"
+        },
+        {
+            "type": "ply",
+            "path": "meshes/Brick_m_hole_01_02_002.ply",
+            "bsdf": "mat-Yellow"
+        },
+        {
+            "type": "ply",
+            "path": "meshes/Brick_m_hole_01_02_001.ply",
+            "bsdf": "mat-Yellow"
+        },
+        {
+            "type": "ply",
+            "path": "meshes/TechnicPulleyLarge_001.ply",
+            "bsdf": "mat-Gray"
+        },
+        {
+            "type": "ply",
+            "path": "meshes/Gear_08_Teeth_001.ply",
+            "bsdf": "mat-Gray"
+        },
+        {
+            "type": "ply",
+            "path": "meshes/Technic_axle_4_001.ply",
+            "bsdf": "mat-Black"
+        },
+        {
+            "type": "ply",
+            "path": "meshes/PinSmoothWithoutFrictionRidges_01_02_005.ply",
+            "bsdf": "mat-Gray"
+        },
+        {
+            "type": "ply",
+            "path": "meshes/Technic_axle_4_005.ply",
+            "bsdf": "mat-Black"
+        },
+        {
+            "type": "ply",
+            "path": "meshes/Gear_24_Teeth_rounded_002.ply",
+            "bsdf": "mat-Gray"
+        },
+        {
+            "type": "ply",
+            "path": "meshes/Gear_08_Teeth_007.ply",
+            "bsdf": "mat-Gray"
+        },
+        {
+            "type": "ply",
+            "path": "meshes/TechnicBush_01_01_005.ply",
+            "bsdf": "mat-Gray"
+        },
+        {
+            "type": "ply",
+            "path": "meshes/Gear_08_Teeth_005.ply",
+            "bsdf": "mat-Gray"
+        },
+        {
+            "type": "ply",
+            "path": "meshes/Technic_axle_10_001.ply",
+            "bsdf": "mat-Black"
+        },
+        {
+            "type": "ply",
+            "path": "meshes/Gear_24_Teeth_003.ply",
+            "bsdf": "mat-Gray"
+        },
+        {
+            "type": "ply",
+            "path": "meshes/PinSmoothWithoutFrictionRidges_01_02_006.ply",
+            "bsdf": "mat-Gray"
+        },
+        {
+            "type": "ply",
+            "path": "meshes/Technic_axle_4_002.ply",
+            "bsdf": "mat-Black"
+        },
+        {
+            "type": "ply",
+            "path": "meshes/Gear_08_Teeth_002.ply",
+            "bsdf": "mat-Gray"
+        },
+        {
+            "type": "ply",
+            "path": "meshes/TechnicPulleyLarge_002.ply",
+            "bsdf": "mat-Gray"
+        },
+        {
+            "type": "ply",
+            "path": "meshes/Gear_24_Teeth_rounded_001.ply",
+            "bsdf": "mat-Gray"
+        },
+        {
+            "type": "ply",
+            "path": "meshes/Technic_axle_4_003.ply",
+            "bsdf": "mat-Black"
+        },
+        {
+            "type": "ply",
+            "path": "meshes/Gear_08_Teeth_006.ply",
+            "bsdf": "mat-Gray"
+        },
+        {
+            "type": "ply",
+            "path": "meshes/Technic_axle_8_001.ply",
+            "bsdf": "mat-Black"
+        },
+        {
+            "type": "ply",
+            "path": "meshes/Gear_24_Teeth_002.ply",
+            "bsdf": "mat-Gray"
+        },
+        {
+            "type": "ply",
+            "path": "meshes/Gear_08_Teeth_003.ply",
+            "bsdf": "mat-Gray"
+        },
+        {
+            "type": "ply",
+            "path": "meshes/Technic_axle_6_001.ply",
+            "bsdf": "mat-Black"
+        },
+        {
+            "type": "ply",
+            "path": "meshes/Gear_24_Teeth_001.ply",
+            "bsdf": "mat-Gray"
+        },
+        {
+            "type": "ply",
+            "path": "meshes/Gear_08_Teeth_004.ply",
+            "bsdf": "mat-Gray"
+        },
+        {
+            "type": "ply",
+            "path": "meshes/Gear_40_TeethLeftF.ply",
+            "bsdf": "mat-Gray"
+        },
+        {
+            "type": "ply",
+            "path": "meshes/ChainTreadLeft_052.ply",
+            "bsdf": "mat-Black"
+        },
+        {
+            "type": "ply",
+            "path": "meshes/ChainTreadLeft_051.ply",
+            "bsdf": "mat-Black"
+        },
+        {
+            "type": "ply",
+            "path": "meshes/ChainTreadLeft_050.ply",
+            "bsdf": "mat-Black"
+        },
+        {
+            "type": "ply",
+            "path": "meshes/ChainTreadLeft_049.ply",
+            "bsdf": "mat-Black"
+        },
+        {
+            "type": "ply",
+            "path": "meshes/ChainTreadLeft_048.ply",
+            "bsdf": "mat-Black"
+        },
+        {
+            "type": "ply",
+            "path": "meshes/ChainTreadLeft_047.ply",
+            "bsdf": "mat-Black"
+        },
+        {
+            "type": "ply",
+            "path": "meshes/ChainTreadLeft_046.ply",
+            "bsdf": "mat-Black"
+        },
+        {
+            "type": "ply",
+            "path": "meshes/ChainTreadLeft_045.ply",
+            "bsdf": "mat-Black"
+        },
+        {
+            "type": "ply",
+            "path": "meshes/ChainTreadLeft_044.ply",
+            "bsdf": "mat-Black"
+        },
+        {
+            "type": "ply",
+            "path": "meshes/ChainTreadLeft_043.ply",
+            "bsdf": "mat-Black"
+        },
+        {
+            "type": "ply",
+            "path": "meshes/ChainTreadLeft_042.ply",
+            "bsdf": "mat-Black"
+        },
+        {
+            "type": "ply",
+            "path": "meshes/ChainTreadLeft_041.ply",
+            "bsdf": "mat-Black"
+        },
+        {
+            "type": "ply",
+            "path": "meshes/ChainTreadLeft_040.ply",
+            "bsdf": "mat-Black"
+        },
+        {
+            "type": "ply",
+            "path": "meshes/ChainTreadLeft_039.ply",
+            "bsdf": "mat-Black"
+        },
+        {
+            "type": "ply",
+            "path": "meshes/ChainTreadLeft_038.ply",
+            "bsdf": "mat-Black"
+        },
+        {
+            "type": "ply",
+            "path": "meshes/ChainTreadLeft_037.ply",
+            "bsdf": "mat-Black"
+        },
+        {
+            "type": "ply",
+            "path": "meshes/ChainTreadLeft_036.ply",
+            "bsdf": "mat-Black"
+        },
+        {
+            "type": "ply",
+            "path": "meshes/ChainTreadLeft_035.ply",
+            "bsdf": "mat-Black"
+        },
+        {
+            "type": "ply",
+            "path": "meshes/ChainTreadLeft_034.ply",
+            "bsdf": "mat-Black"
+        },
+        {
+            "type": "ply",
+            "path": "meshes/ChainTreadLeft_033.ply",
+            "bsdf": "mat-Black"
+        },
+        {
+            "type": "ply",
+            "path": "meshes/ChainTreadLeft_032.ply",
+            "bsdf": "mat-Black"
+        },
+        {
+            "type": "ply",
+            "path": "meshes/ChainTreadLeft_031.ply",
+            "bsdf": "mat-Black"
+        },
+        {
+            "type": "ply",
+            "path": "meshes/ChainTreadLeft_030.ply",
+            "bsdf": "mat-Black"
+        },
+        {
+            "type": "ply",
+            "path": "meshes/ChainTreadLeft_029.ply",
+            "bsdf": "mat-Black"
+        },
+        {
+            "type": "ply",
+            "path": "meshes/ChainTreadLeft_028.ply",
+            "bsdf": "mat-Black"
+        },
+        {
+            "type": "ply",
+            "path": "meshes/ChainTreadLeft_027.ply",
+            "bsdf": "mat-Black"
+        },
+        {
+            "type": "ply",
+            "path": "meshes/ChainTreadLeft_026.ply",
+            "bsdf": "mat-Black"
+        },
+        {
+            "type": "ply",
+            "path": "meshes/ChainTreadLeft_025.ply",
+            "bsdf": "mat-Black"
+        },
+        {
+            "type": "ply",
+            "path": "meshes/ChainTreadLeft_024.ply",
+            "bsdf": "mat-Black"
+        },
+        {
+            "type": "ply",
+            "path": "meshes/ChainTreadLeft_023.ply",
+            "bsdf": "mat-Black"
+        },
+        {
+            "type": "ply",
+            "path": "meshes/ChainTreadLeft_022.ply",
+            "bsdf": "mat-Black"
+        },
+        {
+            "type": "ply",
+            "path": "meshes/ChainTreadLeft_021.ply",
+            "bsdf": "mat-Black"
+        },
+        {
+            "type": "ply",
+            "path": "meshes/ChainTreadLeft_020.ply",
+            "bsdf": "mat-Black"
+        },
+        {
+            "type": "ply",
+            "path": "meshes/ChainTreadLeft_019.ply",
+            "bsdf": "mat-Black"
+        },
+        {
+            "type": "ply",
+            "path": "meshes/ChainTreadLeft_018.ply",
+            "bsdf": "mat-Black"
+        },
+        {
+            "type": "ply",
+            "path": "meshes/ChainTreadLeft_017.ply",
+            "bsdf": "mat-Black"
+        },
+        {
+            "type": "ply",
+            "path": "meshes/ChainTreadLeft_016.ply",
+            "bsdf": "mat-Black"
+        },
+        {
+            "type": "ply",
+            "path": "meshes/ChainTreadLeft_015.ply",
+            "bsdf": "mat-Black"
+        },
+        {
+            "type": "ply",
+            "path": "meshes/ChainTreadLeft_014.ply",
+            "bsdf": "mat-Black"
+        },
+        {
+            "type": "ply",
+            "path": "meshes/ChainTreadLeft_013.ply",
+            "bsdf": "mat-Black"
+        },
+        {
+            "type": "ply",
+            "path": "meshes/ChainTreadLeft_012.ply",
+            "bsdf": "mat-Black"
+        },
+        {
+            "type": "ply",
+            "path": "meshes/ChainTreadLeft_011.ply",
+            "bsdf": "mat-Black"
+        },
+        {
+            "type": "ply",
+            "path": "meshes/ChainTreadLeft_010.ply",
+            "bsdf": "mat-Black"
+        },
+        {
+            "type": "ply",
+            "path": "meshes/ChainTreadLeft_009.ply",
+            "bsdf": "mat-Black"
+        },
+        {
+            "type": "ply",
+            "path": "meshes/ChainTreadLeft_008.ply",
+            "bsdf": "mat-Black"
+        },
+        {
+            "type": "ply",
+            "path": "meshes/ChainTreadLeft_007.ply",
+            "bsdf": "mat-Black"
+        },
+        {
+            "type": "ply",
+            "path": "meshes/ChainTreadLeft_006.ply",
+            "bsdf": "mat-Black"
+        },
+        {
+            "type": "ply",
+            "path": "meshes/ChainTreadLeft_005.ply",
+            "bsdf": "mat-Black"
+        },
+        {
+            "type": "ply",
+            "path": "meshes/ChainTreadLeft_004.ply",
+            "bsdf": "mat-Black"
+        },
+        {
+            "type": "ply",
+            "path": "meshes/ChainTreadLeft_003.ply",
+            "bsdf": "mat-Black"
+        },
+        {
+            "type": "ply",
+            "path": "meshes/ChainTreadLeft_002.ply",
+            "bsdf": "mat-Black"
+        },
+        {
+            "type": "ply",
+            "path": "meshes/ChainTreadLeft_001.ply",
+            "bsdf": "mat-Black"
+        },
+        {
+            "type": "ply",
+            "path": "meshes/ChainTreadLeft_000.ply",
+            "bsdf": "mat-Black"
+        },
+        {
+            "type": "ply",
+            "path": "meshes/Gear_40_TeethLeftB.ply",
+            "bsdf": "mat-Gray"
+        },
+        {
+            "type": "ply",
+            "path": "meshes/ChainTreadLeft_105.ply",
+            "bsdf": "mat-Black"
+        },
+        {
+            "type": "ply",
+            "path": "meshes/ChainTreadLeft_104.ply",
+            "bsdf": "mat-Black"
+        },
+        {
+            "type": "ply",
+            "path": "meshes/ChainTreadLeft_103.ply",
+            "bsdf": "mat-Black"
+        },
+        {
+            "type": "ply",
+            "path": "meshes/ChainTreadLeft_102.ply",
+            "bsdf": "mat-Black"
+        },
+        {
+            "type": "ply",
+            "path": "meshes/ChainTreadLeft_101.ply",
+            "bsdf": "mat-Black"
+        },
+        {
+            "type": "ply",
+            "path": "meshes/ChainTreadLeft_100.ply",
+            "bsdf": "mat-Black"
+        },
+        {
+            "type": "ply",
+            "path": "meshes/ChainTreadLeft_099.ply",
+            "bsdf": "mat-Black"
+        },
+        {
+            "type": "ply",
+            "path": "meshes/ChainTreadLeft_098.ply",
+            "bsdf": "mat-Black"
+        },
+        {
+            "type": "ply",
+            "path": "meshes/ChainTreadLeft_097.ply",
+            "bsdf": "mat-Black"
+        },
+        {
+            "type": "ply",
+            "path": "meshes/ChainTreadLeft_096.ply",
+            "bsdf": "mat-Black"
+        },
+        {
+            "type": "ply",
+            "path": "meshes/ChainTreadLeft_095.ply",
+            "bsdf": "mat-Black"
+        },
+        {
+            "type": "ply",
+            "path": "meshes/ChainTreadLeft_094.ply",
+            "bsdf": "mat-Black"
+        },
+        {
+            "type": "ply",
+            "path": "meshes/ChainTreadLeft_093.ply",
+            "bsdf": "mat-Black"
+        },
+        {
+            "type": "ply",
+            "path": "meshes/ChainTreadLeft_092.ply",
+            "bsdf": "mat-Black"
+        },
+        {
+            "type": "ply",
+            "path": "meshes/ChainTreadLeft_091.ply",
+            "bsdf": "mat-Black"
+        },
+        {
+            "type": "ply",
+            "path": "meshes/ChainTreadLeft_090.ply",
+            "bsdf": "mat-Black"
+        },
+        {
+            "type": "ply",
+            "path": "meshes/ChainTreadLeft_089.ply",
+            "bsdf": "mat-Black"
+        },
+        {
+            "type": "ply",
+            "path": "meshes/ChainTreadLeft_088.ply",
+            "bsdf": "mat-Black"
+        },
+        {
+            "type": "ply",
+            "path": "meshes/ChainTreadLeft_087.ply",
+            "bsdf": "mat-Black"
+        },
+        {
+            "type": "ply",
+            "path": "meshes/ChainTreadLeft_086.ply",
+            "bsdf": "mat-Black"
+        },
+        {
+            "type": "ply",
+            "path": "meshes/ChainTreadLeft_085.ply",
+            "bsdf": "mat-Black"
+        },
+        {
+            "type": "ply",
+            "path": "meshes/ChainTreadLeft_084.ply",
+            "bsdf": "mat-Black"
+        },
+        {
+            "type": "ply",
+            "path": "meshes/ChainTreadLeft_083.ply",
+            "bsdf": "mat-Black"
+        },
+        {
+            "type": "ply",
+            "path": "meshes/ChainTreadLeft_082.ply",
+            "bsdf": "mat-Black"
+        },
+        {
+            "type": "ply",
+            "path": "meshes/ChainTreadLeft_081.ply",
+            "bsdf": "mat-Black"
+        },
+        {
+            "type": "ply",
+            "path": "meshes/ChainTreadLeft_080.ply",
+            "bsdf": "mat-Black"
+        },
+        {
+            "type": "ply",
+            "path": "meshes/ChainTreadLeft_079.ply",
+            "bsdf": "mat-Black"
+        },
+        {
+            "type": "ply",
+            "path": "meshes/ChainTreadLeft_078.ply",
+            "bsdf": "mat-Black"
+        },
+        {
+            "type": "ply",
+            "path": "meshes/ChainTreadLeft_077.ply",
+            "bsdf": "mat-Black"
+        },
+        {
+            "type": "ply",
+            "path": "meshes/ChainTreadLeft_076.ply",
+            "bsdf": "mat-Black"
+        },
+        {
+            "type": "ply",
+            "path": "meshes/ChainTreadLeft_075.ply",
+            "bsdf": "mat-Black"
+        },
+        {
+            "type": "ply",
+            "path": "meshes/ChainTreadLeft_074.ply",
+            "bsdf": "mat-Black"
+        },
+        {
+            "type": "ply",
+            "path": "meshes/ChainTreadLeft_073.ply",
+            "bsdf": "mat-Black"
+        },
+        {
+            "type": "ply",
+            "path": "meshes/ChainTreadLeft_072.ply",
+            "bsdf": "mat-Black"
+        },
+        {
+            "type": "ply",
+            "path": "meshes/ChainTreadLeft_071.ply",
+            "bsdf": "mat-Black"
+        },
+        {
+            "type": "ply",
+            "path": "meshes/ChainTreadLeft_070.ply",
+            "bsdf": "mat-Black"
+        },
+        {
+            "type": "ply",
+            "path": "meshes/ChainTreadLeft_069.ply",
+            "bsdf": "mat-Black"
+        },
+        {
+            "type": "ply",
+            "path": "meshes/ChainTreadLeft_068.ply",
+            "bsdf": "mat-Black"
+        },
+        {
+            "type": "ply",
+            "path": "meshes/ChainTreadLeft_067.ply",
+            "bsdf": "mat-Black"
+        },
+        {
+            "type": "ply",
+            "path": "meshes/ChainTreadLeft_066.ply",
+            "bsdf": "mat-Black"
+        },
+        {
+            "type": "ply",
+            "path": "meshes/ChainTreadLeft_065.ply",
+            "bsdf": "mat-Black"
+        },
+        {
+            "type": "ply",
+            "path": "meshes/ChainTreadLeft_064.ply",
+            "bsdf": "mat-Black"
+        },
+        {
+            "type": "ply",
+            "path": "meshes/ChainTreadLeft_063.ply",
+            "bsdf": "mat-Black"
+        },
+        {
+            "type": "ply",
+            "path": "meshes/ChainTreadLeft_062.ply",
+            "bsdf": "mat-Black"
+        },
+        {
+            "type": "ply",
+            "path": "meshes/ChainTreadLeft_061.ply",
+            "bsdf": "mat-Black"
+        },
+        {
+            "type": "ply",
+            "path": "meshes/ChainTreadLeft_060.ply",
+            "bsdf": "mat-Black"
+        },
+        {
+            "type": "ply",
+            "path": "meshes/ChainTreadLeft_059.ply",
+            "bsdf": "mat-Black"
+        },
+        {
+            "type": "ply",
+            "path": "meshes/ChainTreadLeft_058.ply",
+            "bsdf": "mat-Black"
+        },
+        {
+            "type": "ply",
+            "path": "meshes/ChainTreadLeft_057.ply",
+            "bsdf": "mat-Black"
+        },
+        {
+            "type": "ply",
+            "path": "meshes/ChainTreadLeft_056.ply",
+            "bsdf": "mat-Black"
+        },
+        {
+            "type": "ply",
+            "path": "meshes/ChainTreadLeft_055.ply",
+            "bsdf": "mat-Black"
+        },
+        {
+            "type": "ply",
+            "path": "meshes/ChainTreadLeft_054.ply",
+            "bsdf": "mat-Black"
+        },
+        {
+            "type": "ply",
+            "path": "meshes/ChainTreadLeft_053.ply",
+            "bsdf": "mat-Black"
+        },
+        {
+            "type": "ply",
+            "path": "meshes/Gear_40_TeethRightB.ply",
+            "bsdf": "mat-Gray"
+        },
+        {
+            "type": "ply",
+            "path": "meshes/Gear_40_TeethRightF.ply",
+            "bsdf": "mat-Gray"
+        },
+        {
+            "type": "ply",
+            "path": "meshes/LegoPlane_huge.ply",
+            "bsdf": "mat-Sand"
+        },
+        {
+            "type": "ply",
+            "path": "meshes/Brick_flat_m_flatTop_01_02_038.ply",
+            "bsdf": "mat-Sand"
+        },
+        {
+            "type": "ply",
+            "path": "meshes/Brick_flat_01_08_022.ply",
+            "bsdf": "mat-Light_brown"
+        },
+        {
+            "type": "ply",
+            "path": "meshes/Brick_flat_01_04_011.ply",
+            "bsdf": "mat-Brown"
+        },
+        {
+            "type": "ply",
+            "path": "meshes/Brick_flat_01_08_021.ply",
+            "bsdf": "mat-Brown"
+        },
+        {
+            "type": "ply",
+            "path": "meshes/Brick_flat_01_08_020.ply",
+            "bsdf": "mat-Brown"
+        },
+        {
+            "type": "ply",
+            "path": "meshes/Brick_flat_01_08_019.ply",
+            "bsdf": "mat-Brown"
+        },
+        {
+            "type": "ply",
+            "path": "meshes/Brick_flat_01_08_018.ply",
+            "bsdf": "mat-Brown"
+        },
+        {
+            "type": "ply",
+            "path": "meshes/Brick_flat_01_08_017.ply",
+            "bsdf": "mat-Light_brown"
+        },
+        {
+            "type": "ply",
+            "path": "meshes/Brick_flat_01_04_010.ply",
+            "bsdf": "mat-Light_brown"
+        },
+        {
+            "type": "ply",
+            "path": "meshes/Brick_flat_m_flatTop_01_02_037.ply",
+            "bsdf": "mat-Brown"
+        },
+        {
+            "type": "ply",
+            "path": "meshes/Brick_flat_01_02_006.ply",
+            "bsdf": "mat-Light_brown"
+        },
+        {
+            "type": "ply",
+            "path": "meshes/Brick_flat_01_08_016.ply",
+            "bsdf": "mat-Brown"
+        },
+        {
+            "type": "ply",
+            "path": "meshes/Brick_flat_01_02_003.ply",
+            "bsdf": "mat-Light_brown"
+        },
+        {
+            "type": "ply",
+            "path": "meshes/Brick_flat_m_flatTop_01_02_036.ply",
+            "bsdf": "mat-Brown"
+        },
+        {
+            "type": "ply",
+            "path": "meshes/Brick_flat_m_flatTop_01_02_035.ply",
+            "bsdf": "mat-Brown"
+        },
+        {
+            "type": "ply",
+            "path": "meshes/Brick_flat_m_flatTop_01_02_034.ply",
+            "bsdf": "mat-Light_brown"
+        },
+        {
+            "type": "ply",
+            "path": "meshes/Brick_flat_m_flatTop_01_02_033.ply",
+            "bsdf": "mat-Light_brown"
+        },
+        {
+            "type": "ply",
+            "path": "meshes/Brick_flat_01_08_015.ply",
+            "bsdf": "mat-Brown"
+        },
+        {
+            "type": "ply",
+            "path": "meshes/Brick_flat_m_flatTop_01_02_032.ply",
+            "bsdf": "mat-Brown"
+        },
+        {
+            "type": "ply",
+            "path": "meshes/Brick_flat_m_flatTop_01_02_031.ply",
+            "bsdf": "mat-Brown"
+        },
+        {
+            "type": "ply",
+            "path": "meshes/Brick_flat_m_flatTop_01_02_030.ply",
+            "bsdf": "mat-Sand"
+        },
+        {
+            "type": "ply",
+            "path": "meshes/Brick_flat_m_flatTop_01_02_029.ply",
+            "bsdf": "mat-Sand"
+        },
+        {
+            "type": "ply",
+            "path": "meshes/Brick_flat_m_flatTop_01_02_028.ply",
+            "bsdf": "mat-Sand"
+        },
+        {
+            "type": "ply",
+            "path": "meshes/Brick_flat_m_flatTop_01_02_027.ply",
+            "bsdf": "mat-Sand"
+        },
+        {
+            "type": "ply",
+            "path": "meshes/Brick_flat_m_flatTop_01_02_026.ply",
+            "bsdf": "mat-Sand"
+        },
+        {
+            "type": "ply",
+            "path": "meshes/Brick_flat_m_flatTop_01_02_025.ply",
+            "bsdf": "mat-Sand"
+        },
+        {
+            "type": "ply",
+            "path": "meshes/Brick_flat_m_flatTop_01_02_024.ply",
+            "bsdf": "mat-Sand"
+        },
+        {
+            "type": "ply",
+            "path": "meshes/Brick_flat_m_flatTop_01_02_023.ply",
+            "bsdf": "mat-Sand"
+        },
+        {
+            "type": "ply",
+            "path": "meshes/Brick_flat_02_08_004.ply",
+            "bsdf": "mat-Sand"
+        },
+        {
+            "type": "ply",
+            "path": "meshes/Brick_flat_02_08_003.ply",
+            "bsdf": "mat-Sand"
+        },
+        {
+            "type": "ply",
+            "path": "meshes/Brick_flat_02_06_006.ply",
+            "bsdf": "mat-Sand"
+        },
+        {
+            "type": "ply",
+            "path": "meshes/Brick_flat_02_06_005.ply",
+            "bsdf": "mat-Sand"
+        },
+        {
+            "type": "ply",
+            "path": "meshes/Brick_flat_m_flatTop_01_02_022.ply",
+            "bsdf": "mat-Sand"
+        },
+        {
+            "type": "ply",
+            "path": "meshes/Brick_flat_m_flatTop_01_02_021.ply",
+            "bsdf": "mat-Brown"
+        },
+        {
+            "type": "ply",
+            "path": "meshes/Brick_flat_m_flatTop_01_02_020.ply",
+            "bsdf": "mat-Brown"
+        },
+        {
+            "type": "ply",
+            "path": "meshes/Brick_flat_01_08_014.ply",
+            "bsdf": "mat-Brown"
+        },
+        {
+            "type": "ply",
+            "path": "meshes/Brick_flat_m_flatTop_01_02_019.ply",
+            "bsdf": "mat-Light_brown"
+        },
+        {
+            "type": "ply",
+            "path": "meshes/Brick_flat_m_flatTop_01_02_018.ply",
+            "bsdf": "mat-Light_brown"
+        },
+        {
+            "type": "ply",
+            "path": "meshes/Brick_flat_m_flatTop_01_02_017.ply",
+            "bsdf": "mat-Brown"
+        },
+        {
+            "type": "ply",
+            "path": "meshes/Brick_flat_m_flatTop_01_02_016.ply",
+            "bsdf": "mat-Brown"
+        },
+        {
+            "type": "ply",
+            "path": "meshes/Brick_flat_01_02_005.ply",
+            "bsdf": "mat-Light_brown"
+        },
+        {
+            "type": "ply",
+            "path": "meshes/Brick_flat_01_08_013.ply",
+            "bsdf": "mat-Brown"
+        },
+        {
+            "type": "ply",
+            "path": "meshes/Brick_flat_01_02_004.ply",
+            "bsdf": "mat-Light_brown"
+        },
+        {
+            "type": "ply",
+            "path": "meshes/Brick_flat_m_flatTop_01_02_015.ply",
+            "bsdf": "mat-Brown"
+        },
+        {
+            "type": "ply",
+            "path": "meshes/Brick_flat_01_04_009.ply",
+            "bsdf": "mat-Light_brown"
+        },
+        {
+            "type": "ply",
+            "path": "meshes/Brick_flat_01_08_012.ply",
+            "bsdf": "mat-Light_brown"
+        },
+        {
+            "type": "ply",
+            "path": "meshes/Brick_flat_01_08_011.ply",
+            "bsdf": "mat-Brown"
+        },
+        {
+            "type": "ply",
+            "path": "meshes/Brick_flat_01_08_010.ply",
+            "bsdf": "mat-Light_brown"
+        },
+        {
+            "type": "ply",
+            "path": "meshes/Brick_flat_01_08_009.ply",
+            "bsdf": "mat-Brown"
+        },
+        {
+            "type": "ply",
+            "path": "meshes/Brick_flat_01_08_008.ply",
+            "bsdf": "mat-Brown"
+        },
+        {
+            "type": "ply",
+            "path": "meshes/Brick_flat_01_04_008.ply",
+            "bsdf": "mat-Brown"
+        },
+        {
+            "type": "ply",
+            "path": "meshes/Brick_flat_01_08_007.ply",
+            "bsdf": "mat-Light_brown"
+        },
+        {
+            "type": "ply",
+            "path": "meshes/Brick_flat_m_flatTop_01_02_014.ply",
+            "bsdf": "mat-Sand"
+        },
+        {
+            "type": "ply",
+            "path": "meshes/Brick_flat_02_08_002.ply",
+            "bsdf": "mat-Sand"
+        },
+        {
+            "type": "ply",
+            "path": "meshes/Brick_flat_06_10_014.ply",
+            "bsdf": "mat-Sand"
+        },
+        {
+            "type": "ply",
+            "path": "meshes/Brick_flat_06_10_013.ply",
+            "bsdf": "mat-Sand"
+        },
+        {
+            "type": "ply",
+            "path": "meshes/Brick_flat_06_10_012.ply",
+            "bsdf": "mat-Sand"
+        },
+        {
+            "type": "ply",
+            "path": "meshes/Brick_flat_06_10_011.ply",
+            "bsdf": "mat-Sand"
+        },
+        {
+            "type": "ply",
+            "path": "meshes/Brick_flat_06_10_010.ply",
+            "bsdf": "mat-Sand"
+        },
+        {
+            "type": "ply",
+            "path": "meshes/Brick_flat_06_10_009.ply",
+            "bsdf": "mat-Sand"
+        },
+        {
+            "type": "ply",
+            "path": "meshes/Brick_flat_06_10_008.ply",
+            "bsdf": "mat-Sand"
+        },
+        {
+            "type": "ply",
+            "path": "meshes/Brick_flat_06_10_007.ply",
+            "bsdf": "mat-Sand"
+        },
+        {
+            "type": "ply",
+            "path": "meshes/Brick_flat_06_10_006.ply",
+            "bsdf": "mat-Sand"
+        },
+        {
+            "type": "ply",
+            "path": "meshes/Brick_flat_06_10_005.ply",
+            "bsdf": "mat-Sand"
+        },
+        {
+            "type": "ply",
+            "path": "meshes/Brick_flat_06_10_004.ply",
+            "bsdf": "mat-Sand"
+        },
+        {
+            "type": "ply",
+            "path": "meshes/Brick_flat_06_10_003.ply",
+            "bsdf": "mat-Sand"
+        },
+        {
+            "type": "obj",
+            "path": "meshes/light_plane.obj",
+            "bsdf": "mat-Zero",
+            "arealight": {
+                "radiance": [4, 4, 4]
+            },
+            "to_world": [
+                {
+                    "type": "scale", "value": [3, 3, 3]
+                },
+                {
+                    "type": "translate", "value": [0.4, 3, 1.5]
+                }
+            ]
+        }
+        
+    ]
+}
