@@ -1,0 +1,1650 @@
+{
+    "integrator": {
+        "type": "path",
+        "depth_rr": 0,
+        "depth_max": 65,
+        "spp": 100
+    },
+    "camera": {
+        "type": "perspective",
+        "matrix": [
+            -0.738427, -0.102514, 0.666496, -37.4663,
+            -1.00898e-08, 0.988377, 0.152022, -0.614254,
+            -0.674334, 0.112257, -0.729844, 32.1223,
+            0.0, 0.0, 0.0, 1.0
+        ],
+        "width": 1280,
+        "height": 720,
+        "fov": 35.0
+    },
+    "bsdfs": [
+        {
+            "type": "twosided",
+            "bsdf": {
+                "type": "diffuse",
+                "albedo": [0.000273, 0.000273, 0.000273]
+            },
+            "id": "BlackDiffuseBSDF"
+        },
+        {
+            "type": "twosided",
+            "bsdf": {
+                "type": "diffuse",
+                "albedo": [0.052861, 0.138432, 0.799103]
+            },
+            "id": "BlueBSDF"
+        },
+        {
+            "type": "twosided",
+            "bsdf": {
+                "type": "diffuse",
+                "albedo": [
+                    0.205138,
+                    0.418493,
+                    0.8
+                ]
+            },
+            "id": "BlueGlossyBSDF"
+        },
+        {
+            "type": "twosided",
+            "bsdf": {
+                "type": "diffuse",
+                "albedo": [ 0.502314, 0.441461, 0.313963]
+            },
+            "id": "BrassOldBSDF"
+        },
+        {
+            "type": "twosided",
+            "bsdf": {
+                "type": "diffuse",
+                "albedo": [0.426695, 0.375011, 0.363006]
+            },
+            "id": "BrickTextureBaseBSDF"
+        },
+        {
+            "type": "twosided",
+            "bsdf": {
+                "type": "diffuse",
+                "albedo": [0.334323, 0.255375, 0.1892]
+            },
+            "id": "BrownBSDF"
+        },
+        {
+            "type": "twosided",
+            "bsdf": {
+                "type": "diffuse",
+                "albedo": [0.578596, 0.578596, 0.578596]
+            },
+            "id": "ChromeBSDF"
+        },
+        {
+            "type": "twosided",
+            "bsdf": {
+                "type": "diffuse",
+                "albedo": [0.575677, 0.578596, 0.563447]
+            },
+            "id": "Chrome2BSDF"
+        },
+        {
+            "type": "twosided",
+            "bsdf": {
+                "type": "diffuse",
+                "albedo": [0.079484, 0.080011, 0.078957]
+            },
+            "id": "DarkerGreyBSDF"
+        },
+        {
+            "type": "twosided",
+            "bsdf": {
+                "type": "diffuse",
+                "albedo": [0.419979, 0.390887, 0.369568]
+            },
+            "id": "DeckWoodBaseBSDF"
+        },
+        {
+            "type": "twosided",
+            "bsdf": {
+                "type": "diffuse",
+                "albedo": [0.424737, 0.424737, 0.424737]
+            },
+            "id": "DrivewayBaseBSDF"
+        },
+        {
+            "type": "twosided",
+            "bsdf": {
+                "type": "diffuse",
+                "albedo": [0.699394, 0.699394, 0.699394]
+            },
+            "id": "FenceWoodBaseBSDF"
+        },
+        {
+            "type": "twosided",
+            "bsdf": {
+                "type": "diffuse",
+                "albedo": [0.416131, 0.391048, 0.383141]
+            },
+            "id": "FloorboardsBSDF"
+        },
+        {
+            "type": "twosided",
+            "bsdf": {
+                "type": "diffuse",
+                "albedo": [0.080011, 0.080011, 0.080011]
+            },
+            "id": "GreyBSDF"
+        },
+        {
+            "type": "twosided",
+            "bsdf": {
+                "type": "diffuse",
+                "albedo": [0.661862, 0.661862, 0.661862]
+            },
+            "id": "GroundBSDF"
+        },
+        {
+            "type": "twosided",
+            "bsdf": {
+                "type": "diffuse",
+                "albedo": [0.487458, 0.493879, 0.493879]
+            },
+            "id": "MirrorMaterialBSDF"
+        },
+        {
+            "type": "twosided",
+            "bsdf": {
+                "type": "diffuse",
+                "albedo": [0.8, 0.8, 0.8]
+            },
+            "id": "NoneBSDF"
+        },
+        {
+            "type": "twosided",
+            "bsdf": {
+                "type": "diffuse",
+                "albedo": [0.273831, 0.258563, 0.18314]
+            },
+            "id": "PaleYellowBSDF"
+        },
+        {
+            "type": "twosided",
+            "bsdf": {
+                "type": "diffuse",
+                "albedo": [0.028991, 0.028991, 0.028991]
+            },
+            "id": "PinkBSDF"
+        },
+        {
+            "type": "twosided",
+            "bsdf": {
+                "type": "diffuse",
+                "albedo": [0.8, 0.0619, 0.031334]
+            },
+            "id": "RedBSDF"
+        },
+        {
+            "type": "twosided",
+            "bsdf": {
+                "type": "diffuse",
+                "texture": {
+                    "type": "image",
+                    "path": "textures/Tiles.jpg"
+                }
+            },
+            "id": "RoofTilesBSDF"
+        },
+        {
+            "type": "twosided",
+            "bsdf": {
+                "type": "diffuse",
+                "albedo": [0.416131, 0.415021, 0.414138]
+            },
+            "id": "ShowerFloorBaseBSDF"
+        },
+        {
+            "type": "twosided",
+            "bsdf": {
+                "type": "diffuse",
+                "albedo": [0.426132, 0.426132, 0.426132]
+            },
+            "id": "StainlessSteelBSDF"
+        },
+        {
+            "type": "twosided",
+            "bsdf": {
+                "type": "diffuse",
+                "albedo": [0.416131, 0.401572, 0.395541]
+            },
+            "id": "StepBaseBSDF"
+        },
+        {
+            "type": "twosided",
+            "bsdf": {
+                "type": "diffuse",
+                "albedo": [0.381008, 0.434047, 0.45162]
+            },
+            "id": "TileBaseBSDF"
+        },
+        {
+            "type": "twosided",
+            "bsdf": {
+                "type": "diffuse",
+                "albedo": [0.393113, 0.295146, 0.217308]
+            },
+            "id": "WallMaterialBSDF"
+        },
+        {
+            "type": "twosided",
+            "bsdf": {
+                "type": "diffuse",
+                "albedo": [0.688883, 0.688883, 0.688883]
+            },
+            "id": "WhiteDiffuseBSDF"
+        },
+        {
+            "type": "twosided",
+            "bsdf": {
+                "type": "diffuse",
+                "albedo": [0.8, 0.8, 0.8]
+            },
+            "id": "WhitePaintBSDF"
+        },
+        {
+            "type": "twosided",
+            "bsdf": {
+                "type": "diffuse",
+                "albedo": [0.698193, 0.603565, 0.426615]
+            },
+            "id": "YellowDiffuseBSDF"
+        },
+        {
+            "type": "dielectric",
+            "in_ior": 1.5,
+            "ex_ior": 1.0,
+            "id": "GlassBSDF"
+        },
+        {
+            "type": "twosided",
+            "bsdf": {
+                "type": "diffuse",
+                "albedo": [0.133209, 0.133209, 0.133209]
+            },
+            "id": "GarageDoorBaseBSDF"
+        }
+    ],
+    "shape": [
+        {
+            "type": "obj",
+            "path": "models/Mesh116.obj",
+            "bsdf": "WhitePaintBSDF"
+        },
+        {
+            "type": "obj",
+            "path": "models/Mesh062.obj",
+            "bsdf": "WhitePaintBSDF"
+        },
+        {
+            "type": "obj",
+            "path": "models/Mesh112.obj",
+            "bsdf": "FloorboardsBSDF"
+        },
+        {
+            "type": "obj",
+            "path": "models/Mesh110.obj",
+            "bsdf": "Chrome2BSDF"
+        },
+        {
+            "type": "obj",
+            "path": "models/Mesh125.obj",
+            "bsdf": "WhiteDiffuseBSDF"
+        },
+        {
+            "type": "obj",
+            "path": "models/Mesh096.obj",
+            "bsdf": "RoofTilesBSDF"
+        },
+        {
+            "type": "obj",
+            "path": "models/Mesh118.obj",
+            "bsdf": "WhiteDiffuseBSDF"
+        },
+        {
+            "type": "obj",
+            "path": "models/Mesh109.obj",
+            "bsdf": "WhiteDiffuseBSDF"
+        },
+        {
+            "type": "obj",
+            "path": "models/Mesh104.obj",
+            "bsdf": "TileBaseBSDF"
+        },
+        {
+            "type": "obj",
+            "path": "models/Mesh255.obj",
+            "bsdf": "PinkBSDF"
+        },
+        {
+            "type": "obj",
+            "path": "models/Mesh185.obj",
+            "bsdf": "WhitePaintBSDF"
+        },
+        {
+            "type": "obj",
+            "path": "models/Mesh138.obj",
+            "bsdf": "BrickTextureBaseBSDF"
+        },
+        {
+            "type": "obj",
+            "path": "models/Mesh069.obj",
+            "bsdf": "WhiteDiffuseBSDF"
+        },
+        {
+            "type": "obj",
+            "path": "models/Mesh103.obj",
+            "bsdf": "GlassBSDF"
+        },
+        {
+            "type": "obj",
+            "path": "models/Mesh106.obj",
+            "bsdf": "DarkerGreyBSDF"
+        },
+        {
+            "type": "obj",
+            "path": "models/Mesh101.obj",
+            "bsdf": "ChromeBSDF"
+        },
+        {
+            "type": "obj",
+            "path": "models/Mesh100.obj",
+            "bsdf": "BrassOldBSDF"
+        },
+        {
+            "type": "obj",
+            "path": "models/Mesh061.obj",
+            "bsdf": "YellowDiffuseBSDF"
+        },
+        {
+            "type": "obj",
+            "path": "models/Mesh145.obj",
+            "bsdf": "FloorboardsBSDF"
+        },
+        {
+            "type": "obj",
+            "path": "models/Mesh151.obj",
+            "bsdf": "Chrome2BSDF"
+        },
+        {
+            "type": "obj",
+            "path": "models/Mesh094.obj",
+            "bsdf": "WhiteDiffuseBSDF"
+        },
+        {
+            "type": "obj",
+            "path": "models/Mesh141.obj",
+            "bsdf": "GlassBSDF"
+        },
+        {
+            "type": "obj",
+            "path": "models/Mesh143.obj",
+            "bsdf": "WhiteDiffuseBSDF"
+        },
+        {
+            "type": "obj",
+            "path": "models/Mesh152.obj",
+            "bsdf": "TileBaseBSDF"
+        },
+        {
+            "type": "obj",
+            "path": "models/Mesh168.obj",
+            "bsdf": "ChromeBSDF"
+        },
+        {
+            "type": "obj",
+            "path": "models/Mesh068.obj",
+            "bsdf": "RedBSDF"
+        },
+        {
+            "type": "obj",
+            "path": "models/Mesh160.obj",
+            "bsdf": "BlueBSDF"
+        },
+        {
+            "type": "obj",
+            "path": "models/Mesh162.obj",
+            "bsdf": "WallMaterialBSDF"
+        },
+        {
+            "type": "obj",
+            "path": "models/Mesh167.obj",
+            "bsdf": "StepBaseBSDF"
+        },
+        {
+            "type": "obj",
+            "path": "models/Mesh212.obj",
+            "bsdf": "WhiteDiffuseBSDF"
+        },
+        {
+            "type": "obj",
+            "path": "models/Mesh250.obj",
+            "bsdf": "DarkerGreyBSDF"
+        },
+        {
+            "type": "obj",
+            "path": "models/Mesh149.obj",
+            "bsdf": "ChromeBSDF"
+        },
+        {
+            "type": "obj",
+            "path": "models/Mesh114.obj",
+            "bsdf": "WhiteDiffuseBSDF"
+        },
+        {
+            "type": "obj",
+            "path": "models/Mesh248.obj",
+            "bsdf": "WhiteDiffuseBSDF"
+        },
+        {
+            "type": "obj",
+            "path": "models/Mesh115.obj",
+            "bsdf": "BlackDiffuseBSDF"
+        },
+        {
+            "type": "obj",
+            "path": "models/Mesh146.obj",
+            "bsdf": "GlassBSDF"
+        },
+        {
+            "type": "obj",
+            "path": "models/Mesh137.obj",
+            "bsdf": "GlassBSDF"
+        },
+        {
+            "type": "obj",
+            "path": "models/Mesh155.obj",
+            "bsdf": "WhiteDiffuseBSDF"
+        },
+        {
+            "type": "obj",
+            "path": "models/Mesh131.obj",
+            "bsdf": "GlassBSDF"
+        },
+        {
+            "type": "obj",
+            "path": "models/Mesh147.obj",
+            "bsdf": "DarkerGreyBSDF"
+        },
+        {
+            "type": "obj",
+            "path": "models/Mesh139.obj",
+            "bsdf": "ChromeBSDF"
+        },
+        {
+            "type": "obj",
+            "path": "models/Mesh053.obj",
+            "bsdf": "ChromeBSDF"
+        },
+        {
+            "type": "obj",
+            "path": "models/Mesh111.obj",
+            "bsdf": "WhiteDiffuseBSDF"
+        },
+        {
+            "type": "obj",
+            "path": "models/Mesh173.obj",
+            "bsdf": "DarkerGreyBSDF"
+        },
+        {
+            "type": "obj",
+            "path": "models/Mesh051.obj",
+            "bsdf": "ChromeBSDF"
+        },
+        {
+            "type": "obj",
+            "path": "models/Mesh092.obj",
+            "bsdf": "WhiteDiffuseBSDF"
+        },
+        {
+            "type": "obj",
+            "path": "models/Mesh128.obj",
+            "bsdf": "DarkerGreyBSDF"
+        },
+        {
+            "type": "obj",
+            "path": "models/Mesh221.obj",
+            "bsdf": "ChromeBSDF"
+        },
+        {
+            "type": "obj",
+            "path": "models/Mesh089.obj",
+            "bsdf": "WhiteDiffuseBSDF"
+        },
+        {
+            "type": "obj",
+            "path": "models/Mesh066.obj",
+            "bsdf": "DarkerGreyBSDF"
+        },
+        {
+            "type": "obj",
+            "path": "models/Mesh247.obj",
+            "bsdf": "ChromeBSDF"
+        },
+        {
+            "type": "obj",
+            "path": "models/Mesh088.obj",
+            "bsdf": "RedBSDF"
+        },
+        {
+            "type": "obj",
+            "path": "models/Mesh087.obj",
+            "bsdf": "BlueBSDF"
+        },
+        {
+            "type": "obj",
+            "path": "models/Mesh127.obj",
+            "bsdf": "ChromeBSDF"
+        },
+        {
+            "type": "obj",
+            "path": "models/Mesh086.obj",
+            "bsdf": "RedBSDF"
+        },
+        {
+            "type": "obj",
+            "path": "models/Mesh085.obj",
+            "bsdf": "BlueBSDF"
+        },
+        {
+            "type": "obj",
+            "path": "models/Mesh211.obj",
+            "bsdf": "WhiteDiffuseBSDF"
+        },
+        {
+            "type": "obj",
+            "path": "models/Mesh191.obj",
+            "bsdf": "WhiteDiffuseBSDF"
+        },
+        {
+            "type": "obj",
+            "path": "models/Mesh081.obj",
+            "bsdf": "DarkerGreyBSDF"
+        },
+        {
+            "type": "obj",
+            "path": "models/Mesh079.obj",
+            "bsdf": "GlassBSDF"
+        },
+        {
+            "type": "obj",
+            "path": "models/Mesh264.obj",
+            "bsdf": "NoneBSDF"
+        },
+        {
+            "type": "obj",
+            "path": "models/Mesh126.obj",
+            "bsdf": "DrivewayBaseBSDF"
+        },
+        {
+            "type": "obj",
+            "path": "models/Mesh077.obj",
+            "bsdf": "PinkBSDF"
+        },
+        {
+            "type": "obj",
+            "path": "models/Mesh074.obj",
+            "bsdf": "MirrorMaterialBSDF"
+        },
+        {
+            "type": "obj",
+            "path": "models/Mesh049.obj",
+            "bsdf": "ChromeBSDF"
+        },
+        {
+            "type": "obj",
+            "path": "models/Mesh073.obj",
+            "bsdf": "WhiteDiffuseBSDF"
+        },
+        {
+            "type": "obj",
+            "path": "models/Mesh142.obj",
+            "bsdf": "DarkerGreyBSDF"
+        },
+        {
+            "type": "obj",
+            "path": "models/Mesh133.obj",
+            "bsdf": "WhitePaintBSDF"
+        },
+        {
+            "type": "obj",
+            "path": "models/Mesh171.obj",
+            "bsdf": "StainlessSteelBSDF"
+        },
+        {
+            "type": "obj",
+            "path": "models/Mesh071.obj",
+            "bsdf": "WhitePaintBSDF"
+        },
+        {
+            "type": "obj",
+            "path": "models/Mesh072.obj",
+            "bsdf": "ChromeBSDF"
+        },
+        {
+            "type": "obj",
+            "path": "models/Mesh075.obj",
+            "bsdf": "WhiteDiffuseBSDF"
+        },
+        {
+            "type": "obj",
+            "path": "models/Mesh123.obj",
+            "bsdf": "WhiteDiffuseBSDF"
+        },
+        {
+            "type": "obj",
+            "path": "models/Mesh070.obj",
+            "bsdf": "DarkerGreyBSDF"
+        },
+        {
+            "type": "obj",
+            "path": "models/Mesh064.obj",
+            "bsdf": "WhiteDiffuseBSDF"
+        },
+        {
+            "type": "obj",
+            "path": "models/Mesh048.obj",
+            "bsdf": "DarkerGreyBSDF"
+        },
+        {
+            "type": "obj",
+            "path": "models/Mesh166.obj",
+            "bsdf": "ChromeBSDF"
+        },
+        {
+            "type": "obj",
+            "path": "models/Mesh157.obj",
+            "bsdf": "WhiteDiffuseBSDF"
+        },
+        {
+            "type": "obj",
+            "path": "models/Mesh117.obj",
+            "bsdf": "DarkerGreyBSDF"
+        },
+        {
+            "type": "obj",
+            "path": "models/Mesh065.obj",
+            "bsdf": "ChromeBSDF"
+        },
+        {
+            "type": "obj",
+            "path": "models/Mesh060.obj",
+            "bsdf": "WhiteDiffuseBSDF"
+        },
+        {
+            "type": "obj",
+            "path": "models/Mesh076.obj",
+            "bsdf": "DarkerGreyBSDF"
+        },
+        {
+            "type": "obj",
+            "path": "models/Mesh058.obj",
+            "bsdf": "ChromeBSDF"
+        },
+        {
+            "type": "obj",
+            "path": "models/Mesh120.obj",
+            "bsdf": "WhiteDiffuseBSDF"
+        },
+        {
+            "type": "obj",
+            "path": "models/Mesh054.obj",
+            "bsdf": "DarkerGreyBSDF"
+        },
+        {
+            "type": "obj",
+            "path": "models/Mesh050.obj",
+            "bsdf": "ChromeBSDF"
+        },
+        {
+            "type": "obj",
+            "path": "models/Mesh080.obj",
+            "bsdf": "WhiteDiffuseBSDF"
+        },
+        {
+            "type": "obj",
+            "path": "models/Mesh140.obj",
+            "bsdf": "DarkerGreyBSDF"
+        },
+        {
+            "type": "obj",
+            "path": "models/Mesh148.obj",
+            "bsdf": "WhiteDiffuseBSDF"
+        },
+        {
+            "type": "obj",
+            "path": "models/Mesh169.obj",
+            "bsdf": "WhiteDiffuseBSDF"
+        },
+        {
+            "type": "obj",
+            "path": "models/Mesh047.obj",
+            "bsdf": "WhiteDiffuseBSDF"
+        },
+        {
+            "type": "obj",
+            "path": "models/Mesh045.obj",
+            "bsdf": "WhiteDiffuseBSDF"
+        },
+        {
+            "type": "obj",
+            "path": "models/Mesh156.obj",
+            "bsdf": "WhiteDiffuseBSDF"
+        },
+        {
+            "type": "obj",
+            "path": "models/Mesh130.obj",
+            "bsdf": "DarkerGreyBSDF"
+        },
+        {
+            "type": "obj",
+            "path": "models/Mesh083.obj",
+            "bsdf": "WhiteDiffuseBSDF"
+        },
+        {
+            "type": "obj",
+            "path": "models/Mesh159.obj",
+            "bsdf": "DarkerGreyBSDF"
+        },
+        {
+            "type": "obj",
+            "path": "models/Mesh174.obj",
+            "bsdf": "GlassBSDF"
+        },
+        {
+            "type": "obj",
+            "path": "models/Mesh177.obj",
+            "bsdf": "ChromeBSDF"
+        },
+        {
+            "type": "obj",
+            "path": "models/Mesh180.obj",
+            "bsdf": "WhiteDiffuseBSDF"
+        },
+        {
+            "type": "obj",
+            "path": "models/Mesh193.obj",
+            "bsdf": "GlassBSDF"
+        },
+        {
+            "type": "obj",
+            "path": "models/Mesh132.obj",
+            "bsdf": "DarkerGreyBSDF"
+        },
+        {
+            "type": "obj",
+            "path": "models/Mesh184.obj",
+            "bsdf": "ChromeBSDF"
+        },
+        {
+            "type": "obj",
+            "path": "models/Mesh189.obj",
+            "bsdf": "WhiteDiffuseBSDF"
+        },
+        {
+            "type": "obj",
+            "path": "models/Mesh144.obj",
+            "bsdf": "WhitePaintBSDF"
+        },
+        {
+            "type": "obj",
+            "path": "models/Mesh194.obj",
+            "bsdf": "PinkBSDF"
+        },
+        {
+            "type": "obj",
+            "path": "models/Mesh046.obj",
+            "bsdf": "GlassBSDF"
+        },
+        {
+            "type": "obj",
+            "path": "models/Mesh129.obj",
+            "bsdf": "WhiteDiffuseBSDF"
+        },
+        {
+            "type": "obj",
+            "path": "models/Mesh195.obj",
+            "bsdf": "WhiteDiffuseBSDF"
+        },
+        {
+            "type": "obj",
+            "path": "models/Mesh196.obj",
+            "bsdf": "TileBaseBSDF"
+        },
+        {
+            "type": "obj",
+            "path": "models/Mesh186.obj",
+            "bsdf": "MirrorMaterialBSDF"
+        },
+        {
+            "type": "obj",
+            "path": "models/Mesh090.obj",
+            "bsdf": "ChromeBSDF"
+        },
+        {
+            "type": "obj",
+            "path": "models/Mesh198.obj",
+            "bsdf": "RedBSDF"
+        },
+        {
+            "type": "obj",
+            "path": "models/Mesh201.obj",
+            "bsdf": "BlueBSDF"
+        },
+        {
+            "type": "obj",
+            "path": "models/Mesh078.obj",
+            "bsdf": "ChromeBSDF"
+        },
+        {
+            "type": "obj",
+            "path": "models/Mesh063.obj",
+            "bsdf": "WhiteDiffuseBSDF"
+        },
+        {
+            "type": "obj",
+            "path": "models/Mesh202.obj",
+            "bsdf": "WallMaterialBSDF"
+        },
+        {
+            "type": "obj",
+            "path": "models/Mesh203.obj",
+            "bsdf": "StainlessSteelBSDF"
+        },
+        {
+            "type": "obj",
+            "path": "models/Mesh204.obj",
+            "bsdf": "StainlessSteelBSDF"
+        },
+        {
+            "type": "obj",
+            "path": "models/Mesh215.obj",
+            "bsdf": "GlassBSDF"
+        },
+        {
+            "type": "obj",
+            "path": "models/Mesh206.obj",
+            "bsdf": "ChromeBSDF"
+        },
+        {
+            "type": "obj",
+            "path": "models/Mesh209.obj",
+            "bsdf": "ChromeBSDF"
+        },
+        {
+            "type": "obj",
+            "path": "models/Mesh210.obj",
+            "bsdf": "BlueGlossyBSDF"
+        },
+        {
+            "type": "obj",
+            "path": "models/Mesh199.obj",
+            "bsdf": "WhitePaintBSDF"
+        },
+        {
+            "type": "obj",
+            "path": "models/Mesh158.obj",
+            "bsdf": "WhiteDiffuseBSDF"
+        },
+        {
+            "type": "obj",
+            "path": "models/Mesh214.obj",
+            "bsdf": "DarkerGreyBSDF"
+        },
+        {
+            "type": "obj",
+            "path": "models/Mesh091.obj",
+            "bsdf": "FenceWoodBaseBSDF"
+        },
+        {
+            "type": "obj",
+            "path": "models/Mesh216.obj",
+            "bsdf": "GlassBSDF"
+        },
+        {
+            "type": "obj",
+            "path": "models/Mesh218.obj",
+            "bsdf": "WhiteDiffuseBSDF"
+        },
+        {
+            "type": "obj",
+            "path": "models/Mesh098.obj",
+            "bsdf": "WhiteDiffuseBSDF"
+        },
+        {
+            "type": "obj",
+            "path": "models/Mesh219.obj",
+            "bsdf": "WhiteDiffuseBSDF"
+        },
+        {
+            "type": "obj",
+            "path": "models/Mesh223.obj",
+            "bsdf": "WhiteDiffuseBSDF"
+        },
+        {
+            "type": "obj",
+            "path": "models/Mesh136.obj",
+            "bsdf": "DarkerGreyBSDF"
+        },
+        {
+            "type": "obj",
+            "path": "models/Mesh082.obj",
+            "bsdf": "ChromeBSDF"
+        },
+        {
+            "type": "obj",
+            "path": "models/Mesh225.obj",
+            "bsdf": "WhitePaintBSDF"
+        },
+        {
+            "type": "obj",
+            "path": "models/Mesh227.obj",
+            "bsdf": "ChromeBSDF"
+        },
+        {
+            "type": "obj",
+            "path": "models/Mesh228.obj",
+            "bsdf": "StainlessSteelBSDF"
+        },
+        {
+            "type": "obj",
+            "path": "models/Mesh124.obj",
+            "bsdf": "ShowerFloorBaseBSDF"
+        },
+        {
+            "type": "obj",
+            "path": "models/Mesh153.obj",
+            "bsdf": "BlueGlossyBSDF"
+        },
+        {
+            "type": "obj",
+            "path": "models/Mesh208.obj",
+            "bsdf": "WhitePaintBSDF"
+        },
+        {
+            "type": "obj",
+            "path": "models/Mesh229.obj",
+            "bsdf": "WhiteDiffuseBSDF"
+        },
+        {
+            "type": "obj",
+            "path": "models/Mesh270.obj",
+            "bsdf": "WhiteDiffuseBSDF"
+        },
+        {
+            "type": "obj",
+            "path": "models/Mesh182.obj",
+            "bsdf": "WhiteDiffuseBSDF"
+        },
+        {
+            "type": "obj",
+            "path": "models/Mesh230.obj",
+            "bsdf": "GlassBSDF"
+        },
+        {
+            "type": "obj",
+            "path": "models/Mesh231.obj",
+            "bsdf": "FloorboardsBSDF"
+        },
+        {
+            "type": "obj",
+            "path": "models/Mesh251.obj",
+            "bsdf": "StainlessSteelBSDF"
+        },
+        {
+            "type": "obj",
+            "path": "models/Mesh234.obj",
+            "bsdf": "FloorboardsBSDF"
+        },
+        {
+            "type": "obj",
+            "path": "models/Mesh232.obj",
+            "bsdf": "FloorboardsBSDF"
+        },
+        {
+            "type": "obj",
+            "path": "models/Mesh235.obj",
+            "bsdf": "WhiteDiffuseBSDF"
+        },
+        {
+            "type": "obj",
+            "path": "models/Mesh236.obj",
+            "bsdf": "DarkerGreyBSDF"
+        },
+        {
+            "type": "obj",
+            "path": "models/Mesh237.obj",
+            "bsdf": "ChromeBSDF"
+        },
+        {
+            "type": "obj",
+            "path": "models/Mesh175.obj",
+            "bsdf": "WhiteDiffuseBSDF"
+        },
+        {
+            "type": "obj",
+            "path": "models/Mesh238.obj",
+            "bsdf": "DarkerGreyBSDF"
+        },
+        {
+            "type": "obj",
+            "path": "models/Mesh161.obj",
+            "bsdf": "ChromeBSDF"
+        },
+        {
+            "type": "obj",
+            "path": "models/Mesh176.obj",
+            "bsdf": "BrickTextureBaseBSDF"
+        },
+        {
+            "type": "obj",
+            "path": "models/Mesh107.obj",
+            "bsdf": "WhiteDiffuseBSDF"
+        },
+        {
+            "type": "obj",
+            "path": "models/Mesh172.obj",
+            "bsdf": "WhiteDiffuseBSDF"
+        },
+        {
+            "type": "obj",
+            "path": "models/Mesh165.obj",
+            "bsdf": "WhitePaintBSDF"
+        },
+        {
+            "type": "obj",
+            "path": "models/Mesh190.obj",
+            "bsdf": "ChromeBSDF"
+        },
+        {
+            "type": "obj",
+            "path": "models/Mesh240.obj",
+            "bsdf": "FloorboardsBSDF"
+        },
+        {
+            "type": "obj",
+            "path": "models/Mesh213.obj",
+            "bsdf": "WhiteDiffuseBSDF"
+        },
+        {
+            "type": "obj",
+            "path": "models/Mesh243.obj",
+            "bsdf": "GlassBSDF"
+        },
+        {
+            "type": "obj",
+            "path": "models/Mesh253.obj",
+            "bsdf": "DarkerGreyBSDF"
+        },
+        {
+            "type": "obj",
+            "path": "models/Mesh188.obj",
+            "bsdf": "NoneBSDF"
+        },
+        {
+            "type": "obj",
+            "path": "models/Mesh224.obj",
+            "bsdf": "WhiteDiffuseBSDF"
+        },
+        {
+            "type": "obj",
+            "path": "models/Mesh246.obj",
+            "bsdf": "GlassBSDF"
+        },
+        {
+            "type": "obj",
+            "path": "models/Mesh055.obj",
+            "bsdf": "DarkerGreyBSDF"
+        },
+        {
+            "type": "obj",
+            "path": "models/Mesh192.obj",
+            "bsdf": "NoneBSDF"
+        },
+        {
+            "type": "obj",
+            "path": "models/Mesh217.obj",
+            "bsdf": "WhiteDiffuseBSDF"
+        },
+        {
+            "type": "obj",
+            "path": "models/Mesh084.obj",
+            "bsdf": "DarkerGreyBSDF"
+        },
+        {
+            "type": "obj",
+            "path": "models/Mesh163.obj",
+            "bsdf": "ChromeBSDF"
+        },
+        {
+            "type": "obj",
+            "path": "models/Mesh256.obj",
+            "bsdf": "WhiteDiffuseBSDF"
+        },
+        {
+            "type": "obj",
+            "path": "models/Mesh249.obj",
+            "bsdf": "DarkerGreyBSDF"
+        },
+        {
+            "type": "obj",
+            "path": "models/Mesh187.obj",
+            "bsdf": "ChromeBSDF"
+        },
+        {
+            "type": "obj",
+            "path": "models/Mesh093.obj",
+            "bsdf": "WhiteDiffuseBSDF"
+        },
+        {
+            "type": "obj",
+            "path": "models/Mesh154.obj",
+            "bsdf": "DarkerGreyBSDF"
+        },
+        {
+            "type": "obj",
+            "path": "models/Mesh252.obj",
+            "bsdf": "ChromeBSDF"
+        },
+        {
+            "type": "obj",
+            "path": "models/Mesh254.obj",
+            "bsdf": "WhiteDiffuseBSDF"
+        },
+        {
+            "type": "obj",
+            "path": "models/Mesh099.obj",
+            "bsdf": "WhiteDiffuseBSDF"
+        },
+        {
+            "type": "obj",
+            "path": "models/Mesh197.obj",
+            "bsdf": "DarkerGreyBSDF"
+        },
+        {
+            "type": "obj",
+            "path": "models/Mesh178.obj",
+            "bsdf": "ChromeBSDF"
+        },
+        {
+            "type": "obj",
+            "path": "models/Mesh164.obj",
+            "bsdf": "WhiteDiffuseBSDF"
+        },
+        {
+            "type": "obj",
+            "path": "models/Mesh239.obj",
+            "bsdf": "ChromeBSDF"
+        },
+        {
+            "type": "obj",
+            "path": "models/Mesh257.obj",
+            "bsdf": "BlueGlossyBSDF"
+        },
+        {
+            "type": "obj",
+            "path": "models/Mesh170.obj",
+            "bsdf": "WhitePaintBSDF"
+        },
+        {
+            "type": "obj",
+            "path": "models/Mesh244.obj",
+            "bsdf": "WhiteDiffuseBSDF"
+        },
+        {
+            "type": "obj",
+            "path": "models/Mesh258.obj",
+            "bsdf": "DarkerGreyBSDF"
+        },
+        {
+            "type": "obj",
+            "path": "models/Mesh259.obj",
+            "bsdf": "ChromeBSDF"
+        },
+        {
+            "type": "obj",
+            "path": "models/Mesh260.obj",
+            "bsdf": "WhiteDiffuseBSDF"
+        },
+        {
+            "type": "obj",
+            "path": "models/Mesh226.obj",
+            "bsdf": "DarkerGreyBSDF"
+        },
+        {
+            "type": "obj",
+            "path": "models/Mesh261.obj",
+            "bsdf": "ChromeBSDF"
+        },
+        {
+            "type": "obj",
+            "path": "models/Mesh265.obj",
+            "bsdf": "WhiteDiffuseBSDF"
+        },
+        {
+            "type": "obj",
+            "path": "models/Mesh266.obj",
+            "bsdf": "DarkerGreyBSDF"
+        },
+        {
+            "type": "obj",
+            "path": "models/Mesh108.obj",
+            "bsdf": "ChromeBSDF"
+        },
+        {
+            "type": "obj",
+            "path": "models/Mesh220.obj",
+            "bsdf": "WhiteDiffuseBSDF"
+        },
+        {
+            "type": "obj",
+            "path": "models/Mesh222.obj",
+            "bsdf": "DarkerGreyBSDF"
+        },
+        {
+            "type": "obj",
+            "path": "models/Mesh267.obj",
+            "bsdf": "ChromeBSDF"
+        },
+        {
+            "type": "obj",
+            "path": "models/Mesh271.obj",
+            "bsdf": "WhiteDiffuseBSDF"
+        },
+        {
+            "type": "obj",
+            "path": "models/Mesh105.obj",
+            "bsdf": "DarkerGreyBSDF"
+        },
+        {
+            "type": "obj",
+            "path": "models/Mesh242.obj",
+            "bsdf": "ChromeBSDF"
+        },
+        {
+            "type": "obj",
+            "path": "models/Mesh044.obj",
+            "bsdf": "WhiteDiffuseBSDF"
+        },
+        {
+            "type": "obj",
+            "path": "models/Mesh043.obj",
+            "bsdf": "DarkerGreyBSDF"
+        },
+        {
+            "type": "obj",
+            "path": "models/Mesh042.obj",
+            "bsdf": "ChromeBSDF"
+        },
+        {
+            "type": "obj",
+            "path": "models/Mesh040.obj",
+            "bsdf": "WhiteDiffuseBSDF"
+        },
+        {
+            "type": "obj",
+            "path": "models/Mesh057.obj",
+            "bsdf": "DarkerGreyBSDF"
+        },
+        {
+            "type": "obj",
+            "path": "models/Mesh200.obj",
+            "bsdf": "ChromeBSDF"
+        },
+        {
+            "type": "obj",
+            "path": "models/Mesh039.obj",
+            "bsdf": "WhiteDiffuseBSDF"
+        },
+        {
+            "type": "obj",
+            "path": "models/Mesh038.obj",
+            "bsdf": "DarkerGreyBSDF"
+        },
+        {
+            "type": "obj",
+            "path": "models/Mesh037.obj",
+            "bsdf": "ChromeBSDF"
+        },
+        {
+            "type": "obj",
+            "path": "models/Mesh052.obj",
+            "bsdf": "WhiteDiffuseBSDF"
+        },
+        {
+            "type": "obj",
+            "path": "models/Mesh036.obj",
+            "bsdf": "DarkerGreyBSDF"
+        },
+        {
+            "type": "obj",
+            "path": "models/Mesh035.obj",
+            "bsdf": "ChromeBSDF"
+        },
+        {
+            "type": "obj",
+            "path": "models/Mesh241.obj",
+            "bsdf": "WhiteDiffuseBSDF"
+        },
+        {
+            "type": "obj",
+            "path": "models/Mesh034.obj",
+            "bsdf": "DarkerGreyBSDF"
+        },
+        {
+            "type": "obj",
+            "path": "models/Mesh033.obj",
+            "bsdf": "ChromeBSDF"
+        },
+        {
+            "type": "obj",
+            "path": "models/Mesh179.obj",
+            "bsdf": "WhiteDiffuseBSDF"
+        },
+        {
+            "type": "obj",
+            "path": "models/Mesh263.obj",
+            "bsdf": "DarkerGreyBSDF"
+        },
+        {
+            "type": "obj",
+            "path": "models/Mesh032.obj",
+            "bsdf": "ChromeBSDF"
+        },
+        {
+            "type": "obj",
+            "path": "models/Mesh031.obj",
+            "bsdf": "WhiteDiffuseBSDF"
+        },
+        {
+            "type": "obj",
+            "path": "models/Mesh030.obj",
+            "bsdf": "DarkerGreyBSDF"
+        },
+        {
+            "type": "obj",
+            "path": "models/Mesh122.obj",
+            "bsdf": "ChromeBSDF"
+        },
+        {
+            "type": "obj",
+            "path": "models/Mesh028.obj",
+            "bsdf": "WhiteDiffuseBSDF"
+        },
+        {
+            "type": "obj",
+            "path": "models/Mesh026.obj",
+            "bsdf": "DarkerGreyBSDF"
+        },
+        {
+            "type": "obj",
+            "path": "models/Mesh205.obj",
+            "bsdf": "ChromeBSDF"
+        },
+        {
+            "type": "obj",
+            "path": "models/Mesh135.obj",
+            "bsdf": "WallMaterialBSDF"
+        },
+        {
+            "type": "obj",
+            "path": "models/Mesh027.obj",
+            "bsdf": "WhiteDiffuseBSDF"
+        },
+        {
+            "type": "obj",
+            "path": "models/Mesh119.obj",
+            "bsdf": "DarkerGreyBSDF"
+        },
+        {
+            "type": "obj",
+            "path": "models/Mesh025.obj",
+            "bsdf": "ChromeBSDF"
+        },
+        {
+            "type": "obj",
+            "path": "models/Mesh102.obj",
+            "bsdf": "BlueGlossyBSDF"
+        },
+        {
+            "type": "obj",
+            "path": "models/Mesh245.obj",
+            "bsdf": "StainlessSteelBSDF"
+        },
+        {
+            "type": "obj",
+            "path": "models/Mesh183.obj",
+            "bsdf": "WhiteDiffuseBSDF"
+        },
+        {
+            "type": "obj",
+            "path": "models/Mesh024.obj",
+            "bsdf": "PaleYellowBSDF"
+        },
+        {
+            "type": "obj",
+            "path": "models/Mesh023.obj",
+            "bsdf": "GlassBSDF"
+        },
+        {
+            "type": "obj",
+            "path": "models/Mesh134.obj",
+            "bsdf": "BlackDiffuseBSDF"
+        },
+        {
+            "type": "obj",
+            "path": "models/Mesh150.obj",
+            "bsdf": "BlackDiffuseBSDF"
+        },
+        {
+            "type": "obj",
+            "path": "models/Mesh022.obj",
+            "bsdf": "StainlessSteelBSDF"
+        },
+        {
+            "type": "obj",
+            "path": "models/Mesh041.obj",
+            "bsdf": "GreyBSDF"
+        },
+        {
+            "type": "obj",
+            "path": "models/Mesh233.obj",
+            "bsdf": "ChromeBSDF"
+        },
+        {
+            "type": "obj",
+            "path": "models/Mesh021.obj",
+            "bsdf": "WhiteDiffuseBSDF"
+        },
+        {
+            "type": "obj",
+            "path": "models/Mesh019.obj",
+            "bsdf": "WhiteDiffuseBSDF"
+        },
+        {
+            "type": "obj",
+            "path": "models/Mesh018.obj",
+            "bsdf": "WhitePaintBSDF"
+        },
+        {
+            "type": "obj",
+            "path": "models/Mesh121.obj",
+            "bsdf": "WhitePaintBSDF"
+        },
+        {
+            "type": "obj",
+            "path": "models/Mesh020.obj",
+            "bsdf": "WhiteDiffuseBSDF"
+        },
+        {
+            "type": "obj",
+            "path": "models/Mesh017.obj",
+            "bsdf": "WhiteDiffuseBSDF"
+        },
+        {
+            "type": "obj",
+            "path": "models/Mesh016.obj",
+            "bsdf": "BrickTextureBaseBSDF"
+        },
+        {
+            "type": "obj",
+            "path": "models/Mesh015.obj",
+            "bsdf": "WhiteDiffuseBSDF"
+        },
+        {
+            "type": "obj",
+            "path": "models/Mesh269.obj",
+            "bsdf": "WallMaterialBSDF"
+        },
+        {
+            "type": "obj",
+            "path": "models/Mesh014.obj",
+            "bsdf": "PinkBSDF"
+        },
+        {
+            "type": "obj",
+            "path": "models/Mesh207.obj",
+            "bsdf": "WhitePaintBSDF"
+        },
+        {
+            "type": "obj",
+            "path": "models/Mesh013.obj",
+            "bsdf": "WhiteDiffuseBSDF"
+        },
+        {
+            "type": "obj",
+            "path": "models/Mesh113.obj",
+            "bsdf": "GarageDoorBaseBSDF"
+        },
+        {
+            "type": "obj",
+            "path": "models/Mesh012.obj",
+            "bsdf": "GlassBSDF"
+        },
+        {
+            "type": "obj",
+            "path": "models/Mesh056.obj",
+            "bsdf": "DeckWoodBaseBSDF"
+        },
+        {
+            "type": "obj",
+            "path": "models/Mesh011.obj",
+            "bsdf": "BrownBSDF"
+        },
+        {
+            "type": "obj",
+            "path": "models/Mesh010.obj",
+            "bsdf": "WhiteDiffuseBSDF"
+        },
+        {
+            "type": "obj",
+            "path": "models/Mesh009.obj",
+            "bsdf": "DeckWoodBaseBSDF"
+        },
+        {
+            "type": "obj",
+            "path": "models/Mesh181.obj",
+            "bsdf": "WhiteDiffuseBSDF"
+        },
+        {
+            "type": "obj",
+            "path": "models/Mesh268.obj",
+            "bsdf": "StepBaseBSDF"
+        },
+        {
+            "type": "obj",
+            "path": "models/Mesh095.obj",
+            "bsdf": "GroundBSDF"
+        },
+        {
+            "type": "obj",
+            "path": "models/Mesh008.obj",
+            "bsdf": "DeckWoodBaseBSDF"
+        },
+        {
+            "type": "obj",
+            "path": "models/Mesh097.obj",
+            "bsdf": "PinkBSDF"
+        },
+        {
+            "type": "obj",
+            "path": "models/Mesh007.obj",
+            "bsdf": "WhiteDiffuseBSDF"
+        },
+        {
+            "type": "obj",
+            "path": "models/Mesh006.obj",
+            "bsdf": "StainlessSteelBSDF"
+        },
+        {
+            "type": "obj",
+            "path": "models/Mesh029.obj",
+            "bsdf": "WhitePaintBSDF"
+        },
+        {
+            "type": "obj",
+            "path": "models/Mesh005.obj",
+            "bsdf": "ChromeBSDF"
+        },
+        {
+            "type": "obj",
+            "path": "models/Mesh004.obj",
+            "bsdf": "WhiteDiffuseBSDF"
+        },
+        {
+            "type": "obj",
+            "path": "models/Mesh003.obj",
+            "bsdf": "BlueBSDF"
+        },
+        {
+            "type": "obj",
+            "path": "models/Mesh067.obj",
+            "bsdf": "RedBSDF"
+        },
+        {
+            "type": "obj",
+            "path": "models/Mesh262.obj",
+            "bsdf": "FenceWoodBaseBSDF"
+        },
+        {
+            "type": "obj",
+            "path": "models/Mesh059.obj",
+            "bsdf": "WhitePaintBSDF"
+        },
+        {
+            "type": "obj",
+            "path": "models/Mesh002.obj",
+            "bsdf": "ChromeBSDF"
+        },
+        {
+            "type": "obj",
+            "path": "models/Mesh001.obj",
+            "bsdf": "StainlessSteelBSDF"
+        },
+        {
+            "type": "obj",
+            "path": "models/Mesh000.obj",
+            "bsdf": "WhiteDiffuseBSDF"
+        }
+    ],
+    "light": [
+        {
+            "type": "image_env",
+            "path": "textures/spaichingen_hill_2k.exr",
+            "scale": 1,
+            "to_world": [
+                {
+                    "type": "rotate_y",
+                    "degree": 115.0
+                }
+            ]
+        }
+    ]
+}

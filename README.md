@@ -25,9 +25,9 @@ Scene files for [Caramel Renderer](https://github.com/pjessesco/caramel).
 
 <img src="dragon/gt.png" height=300/>
 
-#### Cornell box
+#### House
 
-<img src="cbox/gt.png" height=300/>
+<img src="house/gt.png" height=300/>
 
 #### Veach-mis
 
