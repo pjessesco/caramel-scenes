@@ -63,55 +63,56 @@ def vec3_to_list(v):
     return [round(float(v[0]), 6), round(float(v[1]), 6), round(float(v[2]), 6)]
 
 
+def blender_to_caramel_vec(v):
+    """Convert a Blender Z-up vector to Caramel Y-up: (x, y, z) -> (x, z, -y)."""
+    return [round(float(v[0]), 6), round(float(v[2]), 6), round(float(-v[1]), 6)]
+
+
 def color_to_list(c):
     """Convert a Blender color (3 or 4 channels) to [r, g, b]."""
     return [round(float(c[0]), 4), round(float(c[1]), 4), round(float(c[2]), 4)]
 
 
 def decompose_transform(obj):
-    """Decompose an object's world transform into Caramel to_world operations."""
-    loc = obj.location
-    rot = obj.rotation_euler
-    scale = obj.scale
+    """Convert an object's world transform to a Caramel to_world 4x4 matrix.
+    Uses matrix_world to correctly handle parent hierarchies.
+    Converts Blender Z-up coordinates to Caramel Y-up coordinates."""
+    from mathutils import Matrix as BlMatrix
 
-    transforms = []
+    mw = obj.matrix_world
 
-    # Scale (only if non-uniform or != 1)
-    if not (math.isclose(scale.x, 1, abs_tol=1e-5) and
-            math.isclose(scale.y, 1, abs_tol=1e-5) and
-            math.isclose(scale.z, 1, abs_tol=1e-5)):
-        transforms.append({
-            "type": "scale",
-            "value": vec3_to_list(scale)
-        })
+    # Check if it's effectively identity
+    identity = BlMatrix.Identity(4)
+    is_identity = all(
+        math.isclose(mw[r][c], identity[r][c], abs_tol=1e-5)
+        for r in range(4) for c in range(4)
+    )
+    if is_identity:
+        return None
 
-    # Rotations (Blender default: XYZ Euler)
-    if not math.isclose(rot.x, 0, abs_tol=1e-5):
-        transforms.append({
-            "type": "rotate_x",
-            "degree": round(math.degrees(rot.x), 4)
-        })
-    if not math.isclose(rot.y, 0, abs_tol=1e-5):
-        transforms.append({
-            "type": "rotate_y",
-            "degree": round(math.degrees(rot.y), 4)
-        })
-    if not math.isclose(rot.z, 0, abs_tol=1e-5):
-        transforms.append({
-            "type": "rotate_z",
-            "degree": round(math.degrees(rot.z), 4)
-        })
+    # Coordinate conversion: Blender Z-up -> Caramel Y-up
+    # (x, y, z) -> (x, z, -y)
+    # M_caramel = C @ M_blender @ C_inv
+    # where C = [[1,0,0,0],[0,0,1,0],[0,-1,0,0],[0,0,0,1]]
+    # and C_inv = [[1,0,0,0],[0,0,-1,0],[0,1,0,0],[0,0,0,1]]
+    coord_conv = BlMatrix((
+        (1, 0, 0, 0),
+        (0, 0, 1, 0),
+        (0, -1, 0, 0),
+        (0, 0, 0, 1),
+    ))
+    coord_inv = BlMatrix((
+        (1, 0, 0, 0),
+        (0, 0, -1, 0),
+        (0, 1, 0, 0),
+        (0, 0, 0, 1),
+    ))
 
-    # Translation
-    if not (math.isclose(loc.x, 0, abs_tol=1e-5) and
-            math.isclose(loc.y, 0, abs_tol=1e-5) and
-            math.isclose(loc.z, 0, abs_tol=1e-5)):
-        transforms.append({
-            "type": "translate",
-            "value": vec3_to_list(loc)
-        })
+    m = coord_conv @ mw @ coord_inv
 
-    return transforms if transforms else None
+    # Output as 16-element row-major array for Caramel
+    # Blender Matrix4x4 is row-major accessible via m[row][col]
+    return [round(float(m[r][c]), 6) for r in range(4) for c in range(4)]
 
 
 def get_principled_bsdf_node(material):
@@ -155,19 +156,199 @@ def get_glass_bsdf_node(material):
 
 
 def get_image_texture_node(socket):
-    """Follow a socket's links to find a connected Image Texture node."""
+    """Follow a socket's links to find a connected Image Texture node.
+    Recursively traverses intermediate nodes (Mix, ColorRamp, HueSat, etc.)."""
     if not socket.is_linked:
         return None
     linked_node = socket.links[0].from_node
     if linked_node.type == 'TEX_IMAGE' and linked_node.image:
         return linked_node
+    # Recurse through intermediate nodes
+    for inp in linked_node.inputs:
+        if inp.type in ('RGBA', 'VALUE', 'VECTOR') and inp.is_linked:
+            result = get_image_texture_node(inp)
+            if result:
+                return result
     return None
 
 
-def convert_material(material, output_dir):
+def _has_complex_shader_tree(socket, depth=0):
+    """Check if a socket's node tree involves procedural textures or Mix nodes
+    that cannot be represented by a single image texture."""
+    if not socket.is_linked or depth > 10:
+        return False
+    linked_node = socket.links[0].from_node
+    if linked_node.type == 'TEX_IMAGE':
+        return False
+    # Procedural textures, node groups, or complex color operations → needs bake
+    if linked_node.type in ('TEX_NOISE', 'TEX_VORONOI', 'TEX_GRADIENT',
+                            'TEX_MUSGRAVE', 'TEX_WAVE', 'TEX_MAGIC',
+                            'TEX_CHECKER', 'TEX_BRICK', 'GROUP'):
+        return True
+    if linked_node.type in ('MIX', 'MIX_SHADER', 'VALTORGB'):
+        # Check if any input leads to procedural or multiple textures
+        for inp in linked_node.inputs:
+            if inp.is_linked and _has_complex_shader_tree(inp, depth + 1):
+                return True
+    for inp in linked_node.inputs:
+        if inp.is_linked and _has_complex_shader_tree(inp, depth + 1):
+            return True
+    return False
+
+
+def _bake_material_to_texture(obj, material, output_dir, bake_size=1024):
+    """Bake a material's Base Color to an image texture using Blender's bake system.
+    Returns the relative path to the baked texture, or None on failure."""
+    tex_dir = os.path.join(output_dir, "textures")
+    os.makedirs(tex_dir, exist_ok=True)
+
+    mat_name = bpy.path.clean_name(material.name)
+    dst_name = f"{mat_name}_baked.png"
+    dst_path = os.path.join(tex_dir, dst_name)
+
+    # Check if the mesh has UV coordinates
+    if not obj.data.uv_layers:
+        print(f"  WARNING: '{obj.name}' has no UV map, cannot bake texture for '{material.name}'")
+        return None
+
+    # Save current state
+    orig_engine = bpy.context.scene.render.engine
+    orig_selected = [o for o in bpy.context.selected_objects]
+    orig_active = bpy.context.view_layer.objects.active
+
+    try:
+        bpy.context.scene.render.engine = 'CYCLES'
+
+        bpy.ops.object.select_all(action='DESELECT')
+        obj.select_set(True)
+        bpy.context.view_layer.objects.active = obj
+
+        # Create a temporary image for baking
+        bake_img = bpy.data.images.new(
+            name=f"_bake_{mat_name}", width=bake_size, height=bake_size, alpha=False
+        )
+
+        # Use the original (non-evaluated) material for node tree manipulation
+        orig_material = bpy.data.materials.get(material.name, material)
+        node_tree = orig_material.node_tree
+        bake_node = node_tree.nodes.new('ShaderNodeTexImage')
+        bake_node.image = bake_img
+        bake_node.name = "_bake_target"
+        # Must be selected (active) node for bake
+        node_tree.nodes.active = bake_node
+
+        # Ensure the correct material is assigned
+        mat_index = None
+        for i, slot in enumerate(obj.material_slots):
+            if slot.material and slot.material.name == material.name:
+                mat_index = i
+                break
+        if mat_index is None:
+            print(f"  WARNING: Material '{material.name}' not found on '{obj.name}'")
+            node_tree.nodes.remove(bake_node)
+            bpy.data.images.remove(bake_img)
+            return None
+
+        # Bake diffuse color (no direct/indirect lighting contributions)
+        bpy.context.scene.cycles.bake_type = 'DIFFUSE'
+        bpy.context.scene.render.bake.use_pass_direct = False
+        bpy.context.scene.render.bake.use_pass_indirect = False
+        bpy.context.scene.render.bake.use_pass_color = True
+
+        bpy.ops.object.bake(type='DIFFUSE')
+
+        # Save the baked image
+        bake_img.filepath_raw = dst_path
+        bake_img.file_format = 'PNG'
+        bake_img.save()
+
+        print(f"  Baked texture for '{material.name}' -> {dst_name}")
+
+        # Cleanup
+        node_tree.nodes.remove(bake_node)
+        bpy.data.images.remove(bake_img)
+
+        return os.path.join("textures", dst_name)
+
+    except Exception as e:
+        print(f"  WARNING: Failed to bake texture for '{material.name}': {e}")
+        # Cleanup on failure
+        orig_mat = bpy.data.materials.get(material.name, material)
+        if "_bake_target" in orig_mat.node_tree.nodes:
+            orig_mat.node_tree.nodes.remove(orig_mat.node_tree.nodes["_bake_target"])
+        if f"_bake_{mat_name}" in bpy.data.images:
+            bpy.data.images.remove(bpy.data.images[f"_bake_{mat_name}"])
+        return None
+
+    finally:
+        # Restore state
+        bpy.context.scene.render.engine = orig_engine
+        bpy.ops.object.select_all(action='DESELECT')
+        for o in orig_selected:
+            o.select_set(True)
+        bpy.context.view_layer.objects.active = orig_active
+
+
+def _export_texture_image(image, output_dir):
+    """Save a Blender image to the output textures directory, return relative path.
+    Handles external files, packed (embedded) images, and generated images."""
+    tex_dir = os.path.join(output_dir, "textures")
+    os.makedirs(tex_dir, exist_ok=True)
+
+    # Supported formats in Caramel
+    SUPPORTED_EXTS = {'.png', '.jpg', '.jpeg', '.exr', '.hdr'}
+
+    # 1) Try to copy the original file if it exists on disk
+    src_path = bpy.path.abspath(image.filepath) if image.filepath else ""
+    if src_path and os.path.exists(src_path):
+        ext = os.path.splitext(src_path)[1].lower()
+        if ext in SUPPORTED_EXTS:
+            import shutil
+            dst_name = os.path.basename(src_path)
+            dst_path = os.path.join(tex_dir, dst_name)
+            if os.path.abspath(src_path) != os.path.abspath(dst_path):
+                shutil.copy2(src_path, dst_path)
+            return os.path.join("textures", dst_name)
+        # Unsupported format — convert to PNG via Blender
+        dst_name = os.path.splitext(os.path.basename(src_path))[0] + ".png"
+        dst_path = os.path.join(tex_dir, dst_name)
+        image.save_render(filepath=dst_path)
+        print(f"  Converted {ext} texture to PNG: {dst_name}")
+        return os.path.join("textures", dst_name)
+
+    # 2) Packed image — extract embedded data from .blend
+    if image.packed_file:
+        ext = os.path.splitext(os.path.basename(image.filepath))[1].lower() if image.filepath else ""
+        if not ext:
+            fmt_map = {'PNG': '.png', 'JPEG': '.jpg', 'BMP': '.bmp',
+                       'TARGA': '.tga', 'OPEN_EXR': '.exr', 'HDR': '.hdr'}
+            ext = fmt_map.get(image.file_format, '.png')
+        if ext in SUPPORTED_EXTS:
+            dst_name = bpy.path.clean_name(image.name) + ext
+            dst_path = os.path.join(tex_dir, dst_name)
+            with open(dst_path, 'wb') as f:
+                f.write(image.packed_file.data)
+            print(f"  Extracted packed texture: {dst_name}")
+            return os.path.join("textures", dst_name)
+        # Unsupported packed format — convert to PNG via Blender
+        dst_name = bpy.path.clean_name(image.name) + ".png"
+        dst_path = os.path.join(tex_dir, dst_name)
+        image.save_render(filepath=dst_path)
+        print(f"  Converted packed {ext} texture to PNG: {dst_name}")
+        return os.path.join("textures", dst_name)
+
+    # 3) Generated or render-result image — save via Blender API
+    dst_name = bpy.path.clean_name(image.name) + ".png"
+    dst_path = os.path.join(tex_dir, dst_name)
+    image.save_render(filepath=dst_path)
+    print(f"  Saved generated texture: {dst_name}")
+    return os.path.join("textures", dst_name)
+
+
+def convert_material(material, output_dir, obj=None):
     """
     Convert a Blender material to a Caramel BSDF dict.
-    Returns a simple diffuse BSDF with the material's base color.
+    Supports diffuse with color, image texture, or baked procedural texture.
     """
     if not material:
         return {"type": "diffuse"}
@@ -175,14 +356,48 @@ def convert_material(material, output_dir):
     # Try to extract base color from Principled BSDF
     node = get_principled_bsdf_node(material)
     if node:
-        base_color = list(node.inputs['Base Color'].default_value)[:3]
+        base_color_input = node.inputs['Base Color']
+        tex_node = get_image_texture_node(base_color_input)
+        if tex_node:
+            rel_path = _export_texture_image(tex_node.image, output_dir)
+            return {"type": "diffuse", "texture": {"type": "image", "path": rel_path}}
+        # Complex shader tree (procedural, Mix, ColorRamp, etc.) → bake
+        if obj and base_color_input.is_linked and _has_complex_shader_tree(base_color_input):
+            rel_path = _bake_material_to_texture(obj, material, output_dir)
+            if rel_path:
+                return {"type": "diffuse", "texture": {"type": "image", "path": rel_path}}
+        base_color = list(base_color_input.default_value)[:3]
         return {"type": "diffuse", "albedo": color_to_list(base_color)}
 
     # Try Diffuse BSDF
     node = get_diffuse_bsdf_node(material)
     if node:
-        color = node.inputs['Color'].default_value
+        color_input = node.inputs['Color']
+        tex_node = get_image_texture_node(color_input)
+        if tex_node:
+            rel_path = _export_texture_image(tex_node.image, output_dir)
+            return {"type": "diffuse", "texture": {"type": "image", "path": rel_path}}
+        if obj and color_input.is_linked and _has_complex_shader_tree(color_input):
+            rel_path = _bake_material_to_texture(obj, material, output_dir)
+            if rel_path:
+                return {"type": "diffuse", "texture": {"type": "image", "path": rel_path}}
+        color = color_input.default_value
         return {"type": "diffuse", "albedo": color_to_list(color)}
+
+    # Try Emission shader (treat as diffuse with the emission color/texture)
+    for nd in material.node_tree.nodes:
+        if nd.type == 'EMISSION':
+            color_input = nd.inputs['Color']
+            tex_node = get_image_texture_node(color_input)
+            if tex_node:
+                rel_path = _export_texture_image(tex_node.image, output_dir)
+                return {"type": "diffuse", "texture": {"type": "image", "path": rel_path}}
+            if obj and color_input.is_linked and _has_complex_shader_tree(color_input):
+                rel_path = _bake_material_to_texture(obj, material, output_dir)
+                if rel_path:
+                    return {"type": "diffuse", "texture": {"type": "image", "path": rel_path}}
+            color = list(color_input.default_value)[:3]
+            return {"type": "diffuse", "albedo": color_to_list(color)}
 
     # Fallback
     if hasattr(material, 'diffuse_color'):
@@ -224,26 +439,32 @@ def export_camera(scene, width, height):
     up = mat @ Vector((0, 1, 0)) - pos
     up.normalize()
 
-    # Field of view (vertical, in degrees)
-    # Blender stores horizontal FOV for perspective cameras
+    # Field of view — Caramel uses horizontal FOV (fov_x) in degrees
     if cam_data.type == 'PERSP':
-        # sensor_fit determines which dimension the FOV angle corresponds to
-        if cam_data.sensor_fit == 'VERTICAL':
+        # cam_data.angle is the FOV for the sensor_fit direction
+        # For AUTO, Blender uses the larger sensor dimension
+        aspect = width / height
+        if cam_data.sensor_fit == 'HORIZONTAL':
             fov = math.degrees(cam_data.angle)
-        else:
-            # Convert horizontal FOV to vertical
-            aspect = width / height
-            fov_h = cam_data.angle
-            fov_v = 2 * math.atan(math.tan(fov_h / 2) / aspect)
-            fov = math.degrees(fov_v)
+        elif cam_data.sensor_fit == 'VERTICAL':
+            fov_v = cam_data.angle
+            fov = math.degrees(2 * math.atan(math.tan(fov_v / 2) * aspect))
+        else:  # AUTO
+            if width >= height:
+                # cam.angle corresponds to horizontal
+                fov = math.degrees(cam_data.angle)
+            else:
+                # cam.angle corresponds to vertical (height > width)
+                fov_v = cam_data.angle
+                fov = math.degrees(2 * math.atan(math.tan(fov_v / 2) * aspect))
     else:
         fov = 45.0  # Fallback for orthographic
 
     return {
         "type": "perspective",
-        "pos": vec3_to_list(pos),
-        "dir": vec3_to_list(direction),
-        "up": vec3_to_list(up),
+        "pos": blender_to_caramel_vec(pos),
+        "dir": blender_to_caramel_vec(direction),
+        "up": blender_to_caramel_vec(up),
         "width": width,
         "height": height,
         "fov": round(fov, 4)
@@ -464,6 +685,9 @@ def _export_obj_by_material(obj, output_dir):
         faces_to_delete = [f for f in bm.faces if f.index not in face_set]
         bmesh.ops.delete(bm, geom=faces_to_delete, context='FACES')
 
+        # Transform vertices to world space (bmesh gives local coords)
+        bm.transform(obj.matrix_world)
+
         # Create a temporary mesh and object for export
         tmp_mesh = bpy.data.meshes.new(part_name)
         bm.to_mesh(tmp_mesh)
@@ -483,13 +707,137 @@ def _export_obj_by_material(obj, output_dir):
     return results
 
 
+def _has_particle_systems(obj):
+    """Check if an object has particle systems that instance other objects."""
+    return len(obj.particle_systems) > 0
+
+
+def _export_particle_instances(obj, output_dir, split_objects=False):
+    """
+    Export particle system instances as realized meshes.
+    For each particle system on obj, this converts particle instances into
+    actual mesh data and exports them as OBJ files.
+    Returns list of Caramel shape dicts, or None if no particle systems.
+    """
+    if not _has_particle_systems(obj):
+        return None
+
+    mesh_dir = os.path.join(output_dir, "meshes")
+    os.makedirs(mesh_dir, exist_ok=True)
+
+    # Enable viewport display for particle modifiers so depsgraph evaluates them
+    orig_viewport_states = {}
+    for mod in obj.modifiers:
+        if mod.type == 'PARTICLE_SYSTEM':
+            orig_viewport_states[mod.name] = mod.show_viewport
+            mod.show_viewport = True
+
+    # Force depsgraph update
+    bpy.context.scene.frame_set(bpy.context.scene.frame_current)
+    depsgraph = bpy.context.evaluated_depsgraph_get()
+    shapes = []
+
+    # Collect instance objects and their materials from particle settings
+    instance_materials = {}  # instance obj name -> material
+    for ps in obj.particle_systems:
+        settings = ps.settings
+        if settings.render_type == 'OBJECT' and settings.instance_object:
+            inst_obj = settings.instance_object
+            mat = inst_obj.active_material
+            instance_materials[inst_obj.name] = mat
+        elif settings.render_type == 'COLLECTION' and settings.instance_collection:
+            for inst_obj in settings.instance_collection.objects:
+                mat = inst_obj.active_material
+                instance_materials[inst_obj.name] = mat
+
+    # Use depsgraph to iterate over all object instances
+    # Collect per-source-object instance transforms
+    source_instances = {}  # source obj name -> list of Matrix4x4
+    for dup in depsgraph.object_instances:
+        if dup.parent and dup.parent.original == obj and dup.is_instance:
+            src_name = dup.object.name
+            if src_name not in source_instances:
+                source_instances[src_name] = []
+            source_instances[src_name].append(dup.matrix_world.copy())
+
+    if not source_instances:
+        return None
+
+    print(f"  Particle instances on '{obj.name}':")
+    for src_name, matrices in source_instances.items():
+        print(f"    {src_name}: {len(matrices)} instances")
+
+    # For each source object, create a combined mesh with all instances
+    for src_name, matrices in source_instances.items():
+        import bmesh
+
+        # Get the source object's evaluated mesh
+        src_obj = bpy.data.objects.get(src_name)
+        if not src_obj:
+            continue
+
+        eval_src = src_obj.evaluated_get(depsgraph)
+
+        # Combine all instances into a single mesh
+        combined_bm = bmesh.new()
+        for mat in matrices:
+            bm_inst = bmesh.new()
+            bm_inst.from_object(eval_src, depsgraph)
+            # Apply instance world transform (OBJ exporter handles coord conversion)
+            bmesh.ops.transform(bm_inst, matrix=mat, verts=bm_inst.verts)
+            # Merge into combined
+            temp_mesh = bpy.data.meshes.new(f"_temp_{src_name}")
+            bm_inst.to_mesh(temp_mesh)
+            bm_inst.free()
+            combined_bm.from_mesh(temp_mesh)
+            bpy.data.meshes.remove(temp_mesh)
+
+        # Create a temporary mesh and object for export
+        part_name = bpy.path.clean_name(f"{obj.name}_particles_{src_name}")
+        combined_mesh = bpy.data.meshes.new(part_name)
+        combined_bm.to_mesh(combined_mesh)
+        combined_bm.free()
+
+        tmp_obj = bpy.data.objects.new(part_name, combined_mesh)
+        bpy.context.collection.objects.link(tmp_obj)
+
+        obj_path = os.path.join(mesh_dir, part_name + ".obj")
+        rel_path = os.path.join("meshes", part_name + ".obj")
+
+        _export_single_obj(tmp_obj, obj_path)
+
+        # Cleanup
+        bpy.data.objects.remove(tmp_obj, do_unlink=True)
+        bpy.data.meshes.remove(combined_mesh)
+
+        # Determine material
+        mat = instance_materials.get(src_name)
+        bsdf_id = _get_material_id(mat)
+
+        shape = {"type": "obj", "path": rel_path, "bsdf": bsdf_id}
+        shapes.append(shape)
+
+        print(f"    Exported combined particle mesh: {part_name}.obj")
+
+    # Restore viewport states
+    for mod in obj.modifiers:
+        if mod.type == 'PARTICLE_SYSTEM' and mod.name in orig_viewport_states:
+            mod.show_viewport = orig_viewport_states[mod.name]
+
+    return shapes if shapes else None
+
+
 def export_mesh(obj, output_dir, split_objects=False):
-    """Export a mesh object to OBJ and return Caramel shape dict(s)."""
+    """Export a mesh object to OBJ and return Caramel shape dict(s).
+    Note: OBJ exporter applies matrix_world + axis conversion, so vertices
+    are already in Caramel world space. No to_world transform needed."""
     mesh_dir = os.path.join(output_dir, "meshes")
     os.makedirs(mesh_dir, exist_ok=True)
 
     name = bpy.path.clean_name(obj.name)
-    to_world = decompose_transform(obj)
+
+    # Export particle instances if present
+    particle_shapes = _export_particle_instances(obj, output_dir, split_objects)
 
     # Try splitting by material first
     mat_split = _export_obj_by_material(obj, output_dir)
@@ -499,9 +847,9 @@ def export_mesh(obj, output_dir, split_objects=False):
         for rel_path, material in mat_split:
             bsdf_id = _get_material_id(material)
             shape = {"type": "obj", "path": rel_path, "bsdf": bsdf_id}
-            if to_world:
-                shape["to_world"] = to_world
             shapes.append(shape)
+        if particle_shapes:
+            shapes.extend(particle_shapes)
         return shapes
 
     # Single material — export as one OBJ
@@ -519,15 +867,16 @@ def export_mesh(obj, output_dir, split_objects=False):
             shapes = []
             for sp in split_paths:
                 shape = {"type": "obj", "path": sp, "bsdf": bsdf_id}
-                if to_world:
-                    shape["to_world"] = to_world
                 shapes.append(shape)
+            if particle_shapes:
+                shapes.extend(particle_shapes)
             return shapes
 
     shape = {"type": "obj", "path": rel_path, "bsdf": bsdf_id}
-    if to_world:
-        shape["to_world"] = to_world
-    return [shape]
+    shapes = [shape]
+    if particle_shapes:
+        shapes.extend(particle_shapes)
+    return shapes
 
 
 def export_lights(scene):
@@ -548,7 +897,7 @@ def export_lights(scene):
                         round(float(color[2] * energy), 4)]
             lights.append({
                 "type": "point",
-                "pos": vec3_to_list(obj.location),
+                "pos": blender_to_caramel_vec(obj.location),
                 "radiance": radiance
             })
 
@@ -715,6 +1064,21 @@ def check_emissive_material(obj):
     return None
 
 
+def _get_particle_instance_objects(scene):
+    """Collect objects that are used only as particle system instances.
+    These should not be exported as standalone shapes."""
+    instance_objs = set()
+    for obj in scene.objects:
+        for ps in obj.particle_systems:
+            settings = ps.settings
+            if settings.render_type == 'OBJECT' and settings.instance_object:
+                instance_objs.add(settings.instance_object.name)
+            elif settings.render_type == 'COLLECTION' and settings.instance_collection:
+                for inst_obj in settings.instance_collection.objects:
+                    instance_objs.add(inst_obj.name)
+    return instance_objs
+
+
 # ============================================================
 # Main export
 # ============================================================
@@ -778,7 +1142,7 @@ def export_scene():
         for mat_idx, (material, _) in mat_faces.items():
             bsdf_id = _get_material_id(material)
             if bsdf_id not in bsdf_map:
-                bsdf = convert_material(material, output_dir)
+                bsdf = convert_material(material, output_dir, obj)
                 bsdf["id"] = bsdf_id
                 bsdf_map[bsdf_id] = bsdf
 
@@ -788,11 +1152,17 @@ def export_scene():
     # Shapes
     shapes = []
 
+    # Collect objects used only as particle instances (skip standalone export)
+    particle_instance_objs = _get_particle_instance_objects(scene)
+
     # Export mesh objects
     for obj in scene.objects:
         if obj.type != 'MESH':
             continue
         if not obj.visible_get():
+            continue
+        if obj.name in particle_instance_objs:
+            print(f"Skipping particle instance source: {obj.name}")
             continue
 
         print(f"Exporting mesh: {obj.name}")
