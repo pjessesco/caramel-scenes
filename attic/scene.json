@@ -1,0 +1,425 @@
+{
+    "integrator": {
+        "type": "path",
+        "depth_rr": 0,
+        "depth_max": 5,
+        "spp": 100
+    },
+    "camera": {
+        "type": "perspective",
+        "pos": [
+            0.553469,
+            1.814048,
+            11.174435
+        ],
+        "dir": [
+            -0.162717,
+            0.090552,
+            -0.982509
+        ],
+        "up": [
+            0.016411,
+            0.99589,
+            0.089067
+        ],
+        "width": 720,
+        "height": 1080,
+        "fov": 37.8493
+    },
+    "light": [
+        {
+            "type": "point",
+            "pos": [
+                2.64935,
+                2.104716,
+                6.559171
+            ],
+            "radiance": [
+                1.0,
+                1.0,
+                1.0
+            ]
+        },
+        {
+            "type": "point",
+            "pos": [
+                2.64935,
+                2.104716,
+                2.191657
+            ],
+            "radiance": [
+                1.0,
+                1.0,
+                1.0
+            ]
+        },
+        {
+            "type": "point",
+            "pos": [
+                -3.13717,
+                2.433275,
+                0.711793
+            ],
+            "radiance": [
+                1.0,
+                1.0,
+                1.0
+            ]
+        },
+        {
+            "type": "image_env",
+            "path": "textures/rogland_clear_night_1k.exr",
+            "scale": 1,
+            "to_world": [
+                {
+                    "type": "rotate_y",
+                    "degree": 180
+                }
+            ]
+        }
+    ],
+    "bsdfs": [
+        {
+            "type": "diffuse",
+            "texture": {
+                "type": "image",
+                "path": "textures/5-rusticLinga-diffuse-0-4096x4096-sample_jpg.jpg"
+            },
+            "id": "wood"
+        },
+        {
+            "type": "diffuse",
+            "texture": {
+                "type": "image",
+                "path": "textures/window1_jpg.jpg"
+            },
+            "id": "roof"
+        },
+        {
+            "type": "diffuse",
+            "texture": {
+                "type": "image",
+                "path": "textures/Parquet-bois-gris-1_jpg.jpg"
+            },
+            "id": "Floor"
+        },
+        {
+            "type": "diffuse",
+            "albedo": [
+                1.0,
+                0.8028,
+                0.319
+            ],
+            "id": "Dust"
+        },
+        {
+            "type": "diffuse",
+            "texture": {
+                "type": "image",
+                "path": "textures/Couette-recto-verso_png.png"
+            },
+            "id": "Drap-asiatique"
+        },
+        {
+            "type": "diffuse",
+            "albedo": [
+                0.5776,
+                0.5906,
+                0.6105
+            ],
+            "id": "Drap-gris"
+        },
+        {
+            "type": "diffuse",
+            "texture": {
+                "type": "image",
+                "path": "textures/Oreiller.png"
+            },
+            "id": "Drap-beige"
+        },
+        {
+            "type": "diffuse",
+            "albedo": [
+                0.8,
+                0.8,
+                0.8
+            ],
+            "id": "DECWood_000"
+        },
+        {
+            "type": "diffuse",
+            "texture": {
+                "type": "image",
+                "path": "textures/Test_001_baked.png"
+            },
+            "id": "Test_001"
+        },
+        {
+            "type": "diffuse",
+            "albedo": [
+                1.0,
+                1.0,
+                1.0
+            ],
+            "id": "Tissus_blanc_001"
+        },
+        {
+            "type": "diffuse",
+            "albedo": [
+                0.9541,
+                1.0,
+                0.8797
+            ],
+            "id": "Tissus_Matelass__001"
+        },
+        {
+            "type": "diffuse",
+            "albedo": [
+                0.2582,
+                0.2016,
+                0.1714
+            ],
+            "id": "hair1"
+        },
+        {
+            "type": "diffuse",
+            "albedo": [
+                0.2295,
+                0.1518,
+                0.1289
+            ],
+            "id": "hair2"
+        },
+        {
+            "type": "diffuse",
+            "albedo": [
+                0.736,
+                0.5451,
+                0.3927
+            ],
+            "id": "Gold"
+        },
+        {
+            "type": "diffuse",
+            "albedo": [
+                0.0037,
+                0.0037,
+                0.0037
+            ],
+            "id": "Bakelite_black"
+        },
+        {
+            "type": "diffuse",
+            "albedo": [
+                0.402,
+                0.1596,
+                0.0074
+            ],
+            "id": "Brass_aniso"
+        },
+        {
+            "type": "diffuse",
+            "albedo": [
+                0.8,
+                0.8,
+                0.8
+            ],
+            "id": "Semi_transparent_white"
+        },
+        {
+            "type": "diffuse",
+            "albedo": [
+                0.3128,
+                0.3128,
+                0.3128
+            ],
+            "id": "sofastand"
+        },
+        {
+            "type": "diffuse",
+            "albedo": [
+                1.0,
+                0.4117,
+                0.1282
+            ],
+            "id": "sofa"
+        },
+        {
+            "type": "diffuse",
+            "albedo": [
+                0.5955,
+                0.2297,
+                0.1221
+            ],
+            "id": "sofaseat"
+        },
+        {
+            "type": "dielectric",
+            "in_ior" : 1,
+            "ex_ior" : 1.5,
+            "id": "glass"
+        }
+    ],
+    "shape": [
+        {
+            "type": "obj",
+            "path": "meshes/roofpole.obj",
+            "bsdf": "wood"
+        },
+        {
+            "type": "obj",
+            "path": "meshes/house_roof.obj",
+            "bsdf": "roof"
+        },
+        {
+            "type": "obj",
+            "path": "meshes/house_wood.obj",
+            "bsdf": "wood"
+        },
+        {
+            "type": "obj",
+            "path": "meshes/roofpolemid.obj",
+            "bsdf": "wood"
+        },
+        {
+            "type": "obj",
+            "path": "meshes/floor.obj",
+            "bsdf": "Floor"
+        },
+        {
+            "type": "obj",
+            "path": "meshes/winframe.obj",
+            "bsdf": "wood"
+        },
+        {
+            "type": "obj",
+            "path": "meshes/Couverture.obj",
+            "bsdf": "Drap-asiatique"
+        },
+        {
+            "type": "obj",
+            "path": "meshes/Matelas.obj",
+            "bsdf": "Drap-gris"
+        },
+        {
+            "type": "obj",
+            "path": "meshes/Oreiller_1.obj",
+            "bsdf": "Drap-beige"
+        },
+        {
+            "type": "obj",
+            "path": "meshes/Oreiller_2.obj",
+            "bsdf": "Drap-beige"
+        },
+        {
+            "type": "obj",
+            "path": "meshes/Pieds.obj",
+            "bsdf": "DECWood_000"
+        },
+        {
+            "type": "obj",
+            "path": "meshes/Sommier_Test_001.obj",
+            "bsdf": "Test_001"
+        },
+        {
+            "type": "obj",
+            "path": "meshes/Sommier_Tissus_blanc_001.obj",
+            "bsdf": "Tissus_blanc_001"
+        },
+        {
+            "type": "obj",
+            "path": "meshes/Sommier_Tissus_Matelass__001.obj",
+            "bsdf": "Tissus_Matelass__001"
+        },
+        {
+            "type": "obj",
+            "path": "meshes/carpet_hair1.obj",
+            "bsdf": "hair1"
+        },
+        {
+            "type": "obj",
+            "path": "meshes/carpet_hair2.obj",
+            "bsdf": "hair2"
+        },
+        {
+            "type": "obj",
+            "path": "meshes/Floor_Lamp_base_CHD_Gold.obj",
+            "bsdf": "Gold"
+        },
+        {
+            "type": "obj",
+            "path": "meshes/Floor_Lamp_base_CHD_Bakelite_black.obj",
+            "bsdf": "Bakelite_black"
+        },
+        {
+            "type": "obj",
+            "path": "meshes/Floor_Lamp_swing_arm_CHD_Gold.obj",
+            "bsdf": "Gold"
+        },
+        {
+            "type": "obj",
+            "path": "meshes/Floor_Lamp_swing_arm_CHD_Brass_aniso.obj",
+            "bsdf": "Brass_aniso"
+        },
+        {
+            "type": "obj",
+            "path": "meshes/Floor_Lamp_Finial.obj",
+            "bsdf": "Gold"
+        },
+        {
+            "type": "obj",
+            "path": "meshes/Floor_Lamp_Harp_Saddle.obj",
+            "bsdf": "Brass_aniso"
+        },
+        {
+            "type": "obj",
+            "path": "meshes/Floor_Lamp_Finial_Base.obj",
+            "bsdf": "Brass_aniso"
+        },
+        {
+            "type": "obj",
+            "path": "meshes/Floor_Lamp_shade_CHD_Gold.obj",
+            "bsdf": "Gold"
+        },
+        {
+            "type": "obj",
+            "path": "meshes/Floor_Lamp_shade_CHD_Semi_transparent_white.obj",
+            "bsdf": "Semi_transparent_white"
+        },
+        {
+            "type": "obj",
+            "path": "meshes/Floor_Lamp_Shade_Frame.obj",
+            "bsdf": "Gold"
+        },
+        {
+            "type": "obj",
+            "path": "meshes/Floor_Lamp_Plug.obj",
+            "bsdf": "Bakelite_black"
+        },
+        {
+            "type": "obj",
+            "path": "meshes/Floor_Lamp_base_CHD_001.obj",
+            "bsdf": "Gold"
+        },
+        {
+            "type": "obj",
+            "path": "meshes/seatstand.obj",
+            "bsdf": "sofastand"
+        },
+        {
+            "type": "obj",
+            "path": "meshes/seatcushion.obj",
+            "bsdf": "sofa"
+        },
+        {
+            "type": "obj",
+            "path": "meshes/seat.obj",
+            "bsdf": "sofaseat"
+        },
+        {
+            "type": "obj",
+            "path": "meshes/glass.obj",
+            "bsdf": "glass"
+        }
+    ]
+}

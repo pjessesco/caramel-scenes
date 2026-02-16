@@ -21,6 +21,10 @@ Scene files for [Caramel Renderer](https://github.com/pjessesco/caramel).
 
 <img src="lego/gt.png" height=400/>
 
+#### Attic
+
+<img src="attic/gt.png" height=500/>
+
 #### Dragon
 
 <img src="dragon/gt.png" height=300/>
