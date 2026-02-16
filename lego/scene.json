@@ -1,7 +1,7 @@
 {
     "integrator": {
         "type": "path",
-        "spp": 3000,
+        "spp": 50,
         "depth_rr": 5,
         "depth_max": 8
     },
