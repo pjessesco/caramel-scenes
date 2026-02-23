@@ -215,7 +215,7 @@ def convert(xml_path):
                 # Pass cam-to-world matrix directly (both Mitsuba and Caramel use row-major)
                 mat = parse_matrix_values(matrix_elem.get("value"))
                 scene["camera"] = {
-                    "type": "perspective",
+                    "type": "pinhole",
                     "matrix": mat,
                     "width": width,
                     "height": height,
@@ -229,7 +229,7 @@ def convert(xml_path):
                 length = math.sqrt(sum(x * x for x in dir_))
                 dir_ = [x / length for x in dir_]
                 scene["camera"] = {
-                    "type": "perspective",
+                    "type": "pinhole",
                     "pos": origin,
                     "dir": [round(x, 6) for x in dir_],
                     "up": up,
@@ -239,7 +239,7 @@ def convert(xml_path):
                 }
             else:
                 scene["camera"] = {
-                    "type": "perspective",
+                    "type": "pinhole",
                     "pos": [0, 0, 5],
                     "dir": [0, 0, -1],
                     "up": [0, 1, 0],
@@ -249,7 +249,7 @@ def convert(xml_path):
                 }
         else:
             scene["camera"] = {
-                "type": "perspective",
+                "type": "pinhole",
                 "pos": [0, 0, 5],
                 "dir": [0, 0, -1],
                 "up": [0, 1, 0],

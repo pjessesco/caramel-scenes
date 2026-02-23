@@ -416,7 +416,7 @@ def export_camera(scene, width, height):
     if not cam_obj:
         print("WARNING: No active camera found, using defaults.")
         return {
-            "type": "perspective",
+            "type": "pinhole",
             "pos": [0, 0, 5],
             "dir": [0, 0, -1],
             "up": [0, 1, 0],
@@ -461,7 +461,7 @@ def export_camera(scene, width, height):
         fov = 45.0  # Fallback for orthographic
 
     return {
-        "type": "perspective",
+        "type": "pinhole",
         "pos": blender_to_caramel_vec(pos),
         "dir": blender_to_caramel_vec(direction),
         "up": blender_to_caramel_vec(up),

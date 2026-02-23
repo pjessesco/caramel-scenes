@@ -6,7 +6,7 @@
         "depth_max": 8
     },
     "camera": {
-        "type": "perspective",
+        "type": "pinhole",
         "pos": [
             -1.2, 0.5, 1.2
         ],

@@ -7,7 +7,7 @@
     },
 
     "camera": {
-        "type" : "perspective(NOT_USED)",
+        "type" : "pinhole",
         "pos" : [0, 0.919769, 5.41159],
         "dir" : [0.0, -0.026718, -0.99961],
         "up" : [0.0, 1.0, 0.0],

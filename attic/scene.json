@@ -6,7 +6,7 @@
         "spp": 50
     },
     "camera": {
-        "type": "perspective",
+        "type": "pinhole",
         "pos": [
             0.553469,
             1.814048,
