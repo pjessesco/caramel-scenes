@@ -7,13 +7,15 @@
     },
 
     "camera": {
-        "type" : "pinhole",
+        "type" : "thinlens",
         "pos" : [-0.2, -0.5, 5.5],
         "dir" : [0.08149219,  0.03621875, -0.99601567],
         "up" : [0, 1, 0],
         "width" : 1280,
         "height" : 640,
-        "fov" : 60
+        "fov" : 60,
+        "lens_radius" : 0.02,
+        "focal_dist" : 4.8
     },
 
     "shape" : [
