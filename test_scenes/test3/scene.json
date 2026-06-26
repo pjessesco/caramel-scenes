@@ -19,8 +19,9 @@
 
     "shape" : [
         {
-            "type" : "obj",
-            "path" : "floor.obj",
+            "type" : "trianglemesh",
+            "P" : [1, 0, -1, -1, 0, -1, -1, 0, 1, 1, 0, 1],
+            "indices" : [0, 1, 2, 3, 0, 2],
             "bsdf" : {
                 "type" : "diffuse",
                 "albedo" : [0.5, 0.5, 0.5]
