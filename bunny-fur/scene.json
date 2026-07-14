@@ -1,0 +1,85 @@
+{
+    "integrator": {
+        "type": "path",
+        "depth_rr": 0,
+        "depth_max": 2,
+        "spp": 2000
+    },
+    "camera": {
+        "type": "pinhole",
+        "pos": [0.0, 2.0, 5.0],
+        "dir": [0.003824902909358938, -0.29260507256595875, -0.9562257273397344],
+        "up": [0, 1, 0],
+        "width": 800,
+        "height": 600,
+        "fov": 21
+    },
+    "light": [
+        {
+            "type": "image_env",
+            "path": "envmap.exr",
+            "scale": 1,
+            "to_world": [
+                {
+                    "type": "rotate_y",
+                    "degree": 115.0
+                }
+            ]
+        }
+    ],
+    "shape": [
+        {
+            "type": "trianglemesh",
+            "P": [-10, 0, -15, 10, 0, -15, 10, 0, 5, -10, 0, 5],
+            "indices": [0, 1, 2, 0, 2, 3],
+            "bsdf": {
+                "type": "diffuse",
+                "albedo": [0.1, 0.1, 0.1]
+            }
+        },
+        {
+            "type": "obj",
+            "path": "geometry/bunny.obj",
+            "bsdf": {
+                "type": "diffuse",
+                "albedo": [0.35, 0.31, 0.3]
+            },
+            "to_world": [
+                {
+                    "type": "translate",
+                    "value": [0.0, -0.033, 0.0]
+                },
+                {
+                    "type": "scale",
+                    "value": [7.0, 7.0, 7.0]
+                },
+                {
+                    "type": "translate",
+                    "value": [0.15, -0.03, 0.0]
+                }
+            ]
+        },
+        {
+            "type": "curvefile",
+            "path": "geometry/fur.bin",
+            "curve_type": "flat",
+            "width0": 8e-05,
+            "width1": 7e-06,
+            "splitdepth": 1,
+            "bsdf": {
+                "type": "diffuse",
+                "albedo": [0.5, 0.5, 0.5]
+            },
+            "to_world": [
+                {
+                    "type": "scale",
+                    "value": [7.0, 7.0, 7.0]
+                },
+                {
+                    "type": "translate",
+                    "value": [0.15, -0.03, 0.0]
+                }
+            ]
+        }
+    ]
+}
